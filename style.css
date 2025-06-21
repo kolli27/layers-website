@@ -376,7 +376,7 @@ footer {
     }
 
     .logo-img {
-        height: 150px;
+        height: 90px; /* Größeres Logo auf Mobilgeräten */
     }
 
     .nav-links {
