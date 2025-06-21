@@ -30,10 +30,11 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
+    padding: 0 5%; /* Changed: Use padding for side spacing only */
     background-color: var(--bg-cream);
     position: fixed;
     width: 100%;
+    height: 80px; /* Added: A fixed height for the navbar */
     top: 0;
     z-index: 1000;
     transition: var(--transition);
@@ -41,8 +42,8 @@ nav {
 
 nav.scrolled {
     box-shadow: var(--shadow);
-    backdrop-filter: blur(10px);
     background-color: rgba(255, 248, 240, 0.95);
+    backdrop-filter: blur(10px);
 }
 
 .logo {
@@ -50,6 +51,7 @@ nav.scrolled {
     align-items: center;
     text-decoration: none;
     transition: var(--transition);
+    height: 100%; /* Added: Make the link container fill the navbar height */
 }
 
 .logo:hover {
@@ -57,10 +59,23 @@ nav.scrolled {
 }
 
 .logo-img {
-    height: 150px;
-    width: auto;
+    height: 60px; /* Changed: A more appropriate height for the logo */
+    width: auto; /* Ensure aspect ratio is maintained */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+}
+
+/* --- Mobile adjustment for the logo --- */
+@media (max-width: 768px) {
+    nav {
+        height: 70px; /* Slightly smaller navbar on mobile */
+    }
+
+    .logo-img {
+        height: 50px; /* Adjust logo size for smaller navbar */
+    }
+    
+    /* (keep your other mobile styles) */
 }
 
 .nav-links {
@@ -437,3 +452,198 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Hero Section for Pages */
+.page-hero {
+    margin-top: 80px; /* Space for the fixed navbar */
+    padding: 4rem 5%;
+    background-color: var(--primary-navy);
+    color: var(--white);
+    text-align: center;
+}
+
+.page-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 1.5rem;
+}
+
+.page-hero p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+
+/* Event Grid Section */
+.event-grid-section {
+    padding: 5rem 5%;
+    background-color: var(--bg-cream);
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.event-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow);
+}
+
+.event-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-navy);
+    margin-bottom: 0.75rem;
+}
+
+.event-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.event-card-arrow {
+    font-size: 2rem;
+    color: var(--primary-orange);
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-card-arrow {
+    transform: translateX(10px);
+}
+
+
+/* Event Detail Section */
+.event-detail-single {
+    padding: 5rem 5%;
+    background-color: var(--white);
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.event-detail-single.alternate-bg {
+    background-color: var(--bg-cream);
+}
+
+.event-detail-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.event-detail-text h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--primary-navy);
+    margin-bottom: 1rem;
+}
+
+.event-detail-text p {
+     color: var(--text-light);
+     line-height: 1.8;
+     margin-bottom: 1.5rem;
+}
+
+.price-tag {
+    display: inline-block;
+    background-color: var(--primary-orange);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 1.5rem 0;
+}
+
+.event-detail-text h3 {
+    font-size: 1.5rem;
+    color: var(--primary-navy);
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.event-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    padding-left: 0;
+}
+
+.event-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.event-features li::before {
+    content: '//';
+    color: var(--primary-orange);
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.event-detail-image-wrapper {
+    background-color: var(--white);
+    border: 1px solid #eee;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.event-detail-single.alternate-bg .event-detail-image-wrapper {
+    background-color: #fff;
+}
+
+.event-detail-image-wrapper h3 {
+    color: var(--primary-navy);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.event-detail-image-wrapper p {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+p.anmerkung {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+
+/* --- Responsive Design for Group Events Page --- */
+@media (max-width: 768px) {
+    .event-detail-content {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
