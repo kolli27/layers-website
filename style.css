@@ -30,11 +30,11 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5%; /* Changed: Use padding for side spacing only */
+    padding: 0 5%;
     background-color: var(--bg-cream);
     position: fixed;
     width: 100%;
-    height: 80px; /* Added: A fixed height for the navbar */
+    height: 90px; /* Increased height for a more prominent logo */
     top: 0;
     z-index: 1000;
     transition: var(--transition);
@@ -51,7 +51,7 @@ nav.scrolled {
     align-items: center;
     text-decoration: none;
     transition: var(--transition);
-    height: 100%; /* Added: Make the link container fill the navbar height */
+    height: 100%;
 }
 
 .logo:hover {
@@ -59,23 +59,22 @@ nav.scrolled {
 }
 
 .logo-img {
-    height: 60px; /* Changed: A more appropriate height for the logo */
-    width: auto; /* Ensure aspect ratio is maintained */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    height: 70px; /* Increased logo height */
+    width: auto;   /* Keep aspect ratio */
 }
 
 /* --- Mobile adjustment for the logo --- */
 @media (max-width: 768px) {
     nav {
-        height: 70px; /* Slightly smaller navbar on mobile */
+        height: 80px; /* Adjust navbar height for mobile */
+        padding: 0 5%; /* Ensure consistent padding */
     }
 
     .logo-img {
-        height: 50px; /* Adjust logo size for smaller navbar */
+        height: 60px; /* CORRECTED height for mobile logo */
     }
-    
-    /* (keep your other mobile styles) */
+
+    /* Your other mobile styles like .nav-links, .menu-toggle etc. remain here */
 }
 
 .nav-links {
@@ -644,6 +643,69 @@ p.anmerkung {
 
     .benefits-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Benefits Section */
+.benefits {
+    padding: 60px 0;
+    background: var(--bg-cream, #fff8f0);
+    text-align: center;
+}
+
+.benefits h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefit-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s;
+}
+
+.benefit-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+}
+
+.benefit-card p {
+    font-size: 1rem;
+    color: #444;
+}
+
+/* Mobile Anpassung */
+@media (max-width: 900px) {
+    .benefits-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 600px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
     }
 }
 
