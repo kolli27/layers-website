@@ -59,19 +59,19 @@ nav.scrolled {
 }
 
 .logo-img {
-    height: 70px; /* Increased logo height */
+    height: 120px; /* Deutlich größere Logo-Höhe für Desktop */
     width: auto;   /* Keep aspect ratio */
 }
 
 /* --- Mobile adjustment for the logo --- */
 @media (max-width: 768px) {
     nav {
-        height: 80px; /* Adjust navbar height for mobile */
+        height: 90px; /* Etwas mehr Platz für das größere Logo */
         padding: 0 5%; /* Ensure consistent padding */
     }
 
     .logo-img {
-        height: 60px; /* CORRECTED height for mobile logo */
+        height: 90px; /* Größeres Logo auf Mobilgeräten */
     }
 
     /* Your other mobile styles like .nav-links, .menu-toggle etc. remain here */
