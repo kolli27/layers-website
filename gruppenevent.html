@@ -4,189 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gruppenevent - Layers Cologne</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* CSS Variables for consistent theming */
-        :root {
-            --primary-orange: #FF8B3D;
-            --primary-navy: #2C3E50;
-            --bg-cream: #FFF8F0;
-            --text-dark: #333333;
-            --text-light: #666666;
-            --white: #FFFFFF;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: var(--bg-cream);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-/* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            background-color: var(--bg-cream);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        nav.scrolled {
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(10px);
-            background-color: rgba(255, 248, 240, 0.95);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-img {
-            height: 50px;
-            width: auto;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-orange);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        /* Dropdown menu */
-        .nav-item {
-            position: relative;
-        }
-
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--white);
-            min-width: 200px;
-            box-shadow: var(--shadow);
-            border-radius: 10px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: var(--transition);
-            margin-top: 10px;
-        }
-
-        .nav-item:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown a {
-            display: block;
-            padding: 0.8rem 1.5rem;
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .dropdown a:hover {
-            background-color: var(--bg-cream);
-            color: var(--primary-orange);
-        }
-
-        .dropdown a:first-child {
-            border-radius: 10px 10px 0 0;
-        }
-
-        .dropdown a:last-child {
-            border-radius: 0 0 10px 10px;
-        }
-
-        .cart-icon {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .cart-icon:hover {
-            transform: scale(1.1);
-        }
-
-        /* Mobile menu toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background-color: var(--primary-navy);
-            transition: var(--transition);
-        }
-
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
+        /* Page-specific styles for group events */
+        
         /* Hero Section for Group Events */
         .events-hero {
             margin-top: 80px;
@@ -207,11 +28,6 @@
             height: 200%;
             background: radial-gradient(circle, rgba(255, 139, 61, 0.1) 0%, transparent 70%);
             animation: rotate 30s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
         }
 
         .events-hero h1 {
@@ -238,24 +54,12 @@
             background-color: var(--white);
         }
 
-.event-grid {
+        .event-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        @media (max-width: 1200px) {
-            .event-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .event-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .event-card {
@@ -266,6 +70,9 @@
             cursor: pointer;
             position: relative;
             animation: fadeInUp 0.8s ease-out both;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .event-card:nth-child(1) { animation-delay: 0.1s; }
@@ -297,19 +104,24 @@
         }
 
         .event-card-content {
-            padding: 2rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .event-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--primary-navy);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .event-card p {
             color: var(--text-light);
-            line-height: 1.8;
+            line-height: 1.6;
             margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            flex-grow: 1;
         }
 
         .event-card-link {
@@ -384,11 +196,6 @@
             animation: pulse 2s ease-in-out infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
         .event-features {
             list-style: none;
             margin-bottom: 2rem;
@@ -442,24 +249,12 @@
             margin-bottom: 4rem;
         }
 
-.benefits-grid {
+        .benefits-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        @media (max-width: 1200px) {
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .benefit-card {
@@ -563,186 +358,29 @@
             opacity: 0.95;
         }
 
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-white {
-            background-color: var(--white);
-            color: var(--primary-orange);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-white:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-primary {
-            background-color: var(--primary-orange);
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(255, 139, 61, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 139, 61, 0.4);
-        }
-
-        .btn-navy {
-            background-color: var(--primary-navy);
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
-        }
-
-        .btn-navy:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(44, 62, 80, 0.4);
-        }
-
-        /* Footer - same as homepage */
-        footer {
-            padding: 3rem 5%;
-            background-color: var(--white);
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-        }
-
-        .footer-section h4 {
-            color: var(--primary-navy);
-            margin-bottom: 1rem;
-        }
-
-        .footer-section a {
-            display: block;
-            color: var(--text-light);
-            text-decoration: none;
-            margin-bottom: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .footer-section a:hover {
-            color: var(--primary-orange);
-            transform: translateX(5px);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--bg-cream);
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary-orange);
-            transform: scale(1.1);
-        }
-
-        /* Animations */
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
+        /* Responsive adjustments for tablets */
+        @media (max-width: 1200px) {
+            .event-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            to {
-                transform: translateY(0);
-                opacity: 1;
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(10deg);
-            }
-        }
-
-        /* Responsive Design */
-@media (max-width: 768px) {
-            nav {
-                padding: 1rem 5%;
-            }
-
-            .logo-img {
-                height: 40px;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--white);
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow);
-                max-height: calc(100vh - 80px);
-                overflow-y: auto;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .dropdown {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                margin-top: 0;
-                background-color: var(--bg-cream);
-                margin: 0.5rem 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
+        /* Responsive Design - Mobile */
+        @media (max-width: 768px) {
             .events-hero h1 {
                 font-size: 2rem;
             }
 
             .events-hero p {
                 font-size: 1rem;
+            }
+
+            .event-grid {
+                grid-template-columns: 1fr;
             }
 
             .event-detail-content {
@@ -753,36 +391,13 @@
                 direction: ltr;
             }
 
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
             .partners-logos {
                 gap: 2rem;
             }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-cream);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-orange);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-navy);
         }
     </style>
 </head>
@@ -927,99 +542,6 @@
                 <a href="#" class="btn btn-primary">Anfrage senden</a>
             </div>
             <div class="event-detail-image">
-                <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600" alt="Geburtstag im layers">
-            </div>
-        </div>
-    </section>
-
-    <section id="kindergeburtstag" class="event-detail">
-        <div class="event-detail-content">
-            <div class="event-detail-text">
-                <h2>Dein Kindergeburtstag im layers</h2>
-                <div class="price-tag">390€ bis zu 10 Kinder, jedes weitere Kind 29€</div>
-                
-                <h3>Was ist drin?</h3>
-                <ul class="event-features">
-                    <li>Private Nutzung des layers</li>
-                    <li>2 - 2,5 Stunden Keramik bemalen</li>
-                    <li>Keramikauswahl im Wert von 15€ pro Kind</li>
-                    <li>Keramikgutschein im Wert von 15€ pro Kind</li>
-                    <li>Ein Geburtstagsteller, auf dem sich jedes Kind verewigen darf im Wert von 20€</li>
-                    <li>Freigetränke: Apfelschorle oder Wasser (auch mit etwas Cola)</li>
-                    <li>Alle Farben & Utensilien</li>
-                </ul>
-
-                <h3>Wir sollen lieber zu euch kommen? Kein Problem</h3>
-                <p>Genießt euer Event bequem an eurer Wunschlocation! Im Büro, im Garten, egal wo. Ob Geburtstag, JGA, Kindergeburtstag - wir kommen zu euch.</p>
-                <p><strong>+ Mehr dazu</strong></p>
-
-                <p>Zur verbindlichen Buchung ist eine Anzahlung von 159€ zu leisten.</p>
-                
-                <a href="#" class="btn btn-primary">Anfrage senden</a>
-            </div>
-            <div class="event-detail-image">
-                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600" alt="Kindergeburtstag im layers">
-            </div>
-        </div>
-    </section>
-
-    <section id="jga" class="event-detail">
-        <div class="event-detail-content">
-            <div class="event-detail-text">
-                <h2>Dein JGA im layers</h2>
-                <div class="price-tag">549€ bis zu 10 Personen, jede weitere Person 35€</div>
-                
-                <h3>Was ist drin?</h3>
-                <ul class="event-features">
-                    <li>Private Nutzung des layers</li>
-                    <li>2 - 2,5 Stunden Keramik bemalen</li>
-                    <li>Keramikauswahl im Wert von 30€ (Betreuung, Glasuren und Brennen)</li>
-                    <li>Keramikgutschein im Wert von 30€ pro Person</li>
-                    <li>Tischgetränke: Cappuccino oder auch Sekt für Aufschläge!</li>
-                    <li>Alle Farben & Utensilien</li>
-                    <li>Eine kleine Überraschung</li>
-                </ul>
-
-                <h3>Wir sollen lieber zu euch kommen? Kein Problem</h3>
-                <p>Genießt euer Event bequem an eurer Wunschlocation! Im Büro, im Garten, egal wo. Ob Geburtstag, JGA, Kindergeburtstag - wir kommen zu euch.</p>
-                <p><strong>+ Mehr dazu</strong></p>
-
-                <p>Zur verbindlichen Buchung ist eine Anzahlung von 159€ zu leisten.</p>
-                
-                <a href="#" class="btn btn-primary">Anfrage senden</a>
-            </div>
-            <div class="event-detail-image">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600" alt="JGA im layers">
-            </div>
-        </div>
-    </section>
-
-    <section id="teamevent" class="event-detail">
-        <div class="event-detail-content">
-            <div class="event-detail-text">
-                <h2>Euer Teamevent mit layers & B2B</h2>
-                <div class="price-tag">549€ bis zu 10 Personen, jede weitere Person 35€</div>
-                
-                <h3>Was ist drin?</h3>
-                <ul class="event-features">
-                    <li>Private Nutzung des layers</li>
-                    <li>2 - 2,5 Stunden Keramik bemalen</li>
-                    <li>Keramikauswahl im Wert von 35€ (Betreuung, Glasuren und Brennen)</li>
-                    <li>Keramikgutschein im Wert von 25€ pro Person</li>
-                    <li>Tischgetränke: Cappuccino oder auch Sekt für Aufschläge!</li>
-                    <li>Alle Farben & Utensilien</li>
-                    <li>Eine kleine Überraschung</li>
-                </ul>
-
-                <h3>Wir sollen lieber zu euch kommen? Kein Problem</h3>
-                <p>Genießt euer Event bequem an eurer Wunschlocation! Im Büro, im Garten, egal wo. Ob Geburtstag, JGA, Kindergeburtstag - wir kommen zu euch.</p>
-                <p><strong>+ Mehr dazu</strong></p>
-
-                <p>Zur verbindlichen Buchung ist eine Anzahlung von 159€ zu leisten.</p>
-                
-                <a href="#" class="btn btn-primary">Anfrage senden</a>
-            </div>
-            <div class="event-detail-image">
                 <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600" alt="Teamevent im layers">
             </div>
         </div>
@@ -1112,7 +634,7 @@
         </div>
     </footer>
 
-<script>
+    <script>
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
@@ -1143,10 +665,10 @@
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+                if (targetId === '#' || !targetId.startsWith('#')) return;
                 
+                e.preventDefault();
                 const target = document.querySelector(targetId);
                 if (target) {
                     const offsetTop = target.offsetTop - 80;
@@ -1179,6 +701,117 @@
                 }
             });
         });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
     </script>
 </body>
-</html>
+</html>ert von 25€ pro Person</li>
+                    <li>Tischgetränke: Cappuccino oder auch Sekt für Aufschläge!</li>
+                    <li>Alle Farben & Utensilien</li>
+                    <li>Eine kleine Überraschung</li>
+                </ul>
+
+                <h3>Wir sollen lieber zu euch kommen? Kein Problem</h3>
+                <p>Genießt euer Event bequem an eurer Wunschlocation! Im Büro, im Garten, egal wo. Ob Geburtstag, JGA, Kindergeburtstag - wir kommen zu euch.</p>
+                <p><strong>+ Mehr dazu</strong></p>
+
+                <p>Zur verbindlichen Buchung ist eine Anzahlung von 159€ zu leisten.</p>
+                
+                <a href="#" class="btn btn-primary">Anfrage senden</a>
+            </div>
+            <div class="event-detail-image">
+                <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600" alt="Geburtstag im layers">
+            </div>
+        </div>
+    </section>
+
+    <section id="kindergeburtstag" class="event-detail">
+        <div class="event-detail-content">
+            <div class="event-detail-text">
+                <h2>Dein Kindergeburtstag im layers</h2>
+                <div class="price-tag">390€ bis zu 10 Kinder, jedes weitere Kind 29€</div>
+                
+                <h3>Was ist drin?</h3>
+                <ul class="event-features">
+                    <li>Private Nutzung des layers</li>
+                    <li>2 - 2,5 Stunden Keramik bemalen</li>
+                    <li>Keramikauswahl im Wert von 15€ pro Kind</li>
+                    <li>Keramikgutschein im Wert von 15€ pro Kind</li>
+                    <li>Ein Geburtstagsteller, auf dem sich jedes Kind verewigen darf im Wert von 20€</li>
+                    <li>Freigetränke: Apfelschorle oder Wasser (auch mit etwas Cola)</li>
+                    <li>Alle Farben & Utensilien</li>
+                </ul>
+
+                <h3>Wir sollen lieber zu euch kommen? Kein Problem</h3>
+                <p>Genießt euer Event bequem an eurer Wunschlocation! Im Büro, im Garten, egal wo. Ob Geburtstag, JGA, Kindergeburtstag - wir kommen zu euch.</p>
+                <p><strong>+ Mehr dazu</strong></p>
+
+                <p>Zur verbindlichen Buchung ist eine Anzahlung von 159€ zu leisten.</p>
+                
+                <a href="#" class="btn btn-primary">Anfrage senden</a>
+            </div>
+            <div class="event-detail-image">
+                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600" alt="Kindergeburtstag im layers">
+            </div>
+        </div>
+    </section>
+
+    <section id="jga" class="event-detail">
+        <div class="event-detail-content">
+            <div class="event-detail-text">
+                <h2>Dein JGA im layers</h2>
+                <div class="price-tag">549€ bis zu 10 Personen, jede weitere Person 35€</div>
+                
+                <h3>Was ist drin?</h3>
+                <ul class="event-features">
+                    <li>Private Nutzung des layers</li>
+                    <li>2 - 2,5 Stunden Keramik bemalen</li>
+                    <li>Keramikauswahl im Wert von 30€ (Betreuung, Glasuren und Brennen)</li>
+                    <li>Keramikgutschein im Wert von 30€ pro Person</li>
+                    <li>Tischgetränke: Cappuccino oder auch Sekt für Aufschläge!</li>
+                    <li>Alle Farben & Utensilien</li>
+                    <li>Eine kleine Überraschung</li>
+                </ul>
+
+                <h3>Wir sollen lieber zu euch kommen? Kein Problem</h3>
+                <p>Genießt euer Event bequem an eurer Wunschlocation! Im Büro, im Garten, egal wo. Ob Geburtstag, JGA, Kindergeburtstag - wir kommen zu euch.</p>
+                <p><strong>+ Mehr dazu</strong></p>
+
+                <p>Zur verbindlichen Buchung ist eine Anzahlung von 159€ zu leisten.</p>
+                
+                <a href="#" class="btn btn-primary">Anfrage senden</a>
+            </div>
+            <div class="event-detail-image">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600" alt="JGA im layers">
+            </div>
+        </div>
+    </section>
+
+    <section id="teamevent" class="event-detail">
+        <div class="event-detail-content">
+            <div class="event-detail-text">
+                <h2>Euer Teamevent mit layers & B2B</h2>
+                <div class="price-tag">549€ bis zu 10 Personen, jede weitere Person 35€</div>
+                
+                <h3>Was ist drin?</h3>
+                <ul class="event-features">
+                    <li>Private Nutzung des layers</li>
+                    <li>2 - 2,5 Stunden Keramik bemalen</li>
+                    <li>Keramikauswahl im Wert von 35€ (Betreuung, Glasuren und Brennen)</li>
+                    <li>Keramikgutschein im W
