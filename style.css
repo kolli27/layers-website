@@ -66,12 +66,16 @@ nav.scrolled {
 /* --- Mobile adjustment for the logo --- */
 @media (max-width: 768px) {
     nav {
-        height: 90px; /* Etwas mehr Platz für das größere Logo */
-        padding: 0 5%; /* Ensure consistent padding */
+        height: 70px; /* Weniger Höhe für mobile, damit das Logo nicht abgeschnitten wird */
+        padding: 0 5%;
     }
 
     .logo-img {
-        height: 90px; /* Größeres Logo auf Mobilgeräten */
+        height: 60px; /* Kleineres Logo auf Mobile, damit es immer sichtbar bleibt */
+        max-width: 90vw;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
     }
 
     /* Your other mobile styles like .nav-links, .menu-toggle etc. remain here */
@@ -376,7 +380,11 @@ footer {
     }
 
     .logo-img {
-        height: 90px; /* Größeres Logo auf Mobilgeräten */
+        height: 60px; /* Kleineres Logo auf Mobile, damit es immer sichtbar bleibt */
+        max-width: 90vw;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
     }
 
     .nav-links {
@@ -454,16 +462,44 @@ footer {
 
 /* Hero Section for Pages */
 .page-hero {
-    margin-top: 80px; /* Space for the fixed navbar */
+    position: relative;
+    margin-top: 80px;
     padding: 4rem 5%;
-    background-color: var(--primary-navy);
+    background: linear-gradient(135deg, var(--primary-navy) 60%, var(--primary-orange) 100%);
     color: var(--white);
     text-align: center;
+    overflow: hidden;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 50%;
+    z-index: 0;
+    animation: float 6s ease-in-out infinite;
+}
+
+.page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+    z-index: 0;
+    animation: float 8s ease-in-out infinite reverse;
 }
 
 .page-hero-content {
-    max-width: 800px;
-    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .page-hero h1 {
