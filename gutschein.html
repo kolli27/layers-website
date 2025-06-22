@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gutscheine - Layers Cologne</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Page-specific styles for gutscheine */
+        
+        .gutschein-hero {
+            margin-top: 80px;
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-orange) 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gutschein-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .gutschein-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .gutschein-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .gutschein-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .gutschein-hero p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        /* Main content section */
+        .gutschein-main {
+            padding: 5rem 5%;
+            background-color: var(--bg-cream);
+        }
+
+        .gutschein-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* Gutschein preview */
+        .gutschein-preview {
+            position: sticky;
+            top: 100px;
+        }
+
+        .gutschein-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(5deg);
+            transition: var(--transition);
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .gutschein-image-wrapper:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+
+        .gutschein-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Purchase form */
+        .gutschein-form {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .gutschein-form h2 {
+            font-size: 2rem;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .gutschein-form p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group.required label::after {
+            content: ' *';
+            color: var(--primary-orange);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--white);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 3px rgba(255, 139, 61, 0.1);
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        .select-wrapper::after {
+            content: '▼';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-orange);
+            pointer-events: none;
+        }
+
+        .form-control select {
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary-orange);
+            background-color: var(--white);
+            color: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .quantity-btn:hover {
+            background-color: var(--primary-orange);
+            color: var(--white);
+        }
+
+        .quantity-input {
+            width: 80px;
+            text-align: center;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .price-display {
+            background-color: var(--bg-cream);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .price-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-navy);
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-orange), #FF6B1A);
+            color: var(--white);
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 139, 61, 0.4);
+        }
+
+        .checkout-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Benefits section */
+        .gutschein-benefits {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .benefits-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .benefits-container h2 {
+            font-size: 2.5rem;
+            color: var(--primary-navy);
+            margin-bottom: 3rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-item {
+            padding: 2rem;
+            background-color: var(--bg-cream);
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-item h3 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .benefit-item p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Info section */
+        .gutschein-info {
+            padding: 5rem 5%;
+            background-color: var(--bg-cream);
+        }
+
+        .info-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .info-container h2 {
+            font-size: 2rem;
+            color: var(--primary-navy);
+            margin-bottom: 2rem;
+        }
+
+        .info-container p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .gutschein-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gutschein-preview {
+                position: static;
+                order: 2;
+            }
+
+            .gutschein-form {
+                order: 1;
+                padding: 2rem;
+            }
+
+            .gutschein-image-wrapper {
+                transform: none;
+            }
+
+            .quantity-control {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">
+            <img src="./layers logo-3.avif" alt="Layers Logo" class="logo-img">
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">home</a></li>
+            <li><a href="gruppenevent.html">gruppenevent</a></li>
+            <li><a href="gutscheine.html" class="active">gutscheine</a></li>
+            <li><a href="#sortiment">sortiment & preise</a></li>
+            <li><a href="#keramik">keramik@home</a></li>
+            <li><a href="#abholzeiten">aktuelle abholzeiten</a></li>
+            <li><a href="#faq">faq</a></li>
+            <li><a href="#about">über layers</a></li>
+            <li><a href="#kontakt">kontakt</a></li>
+            <li>
+                <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" />
+                    <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" />
+                    <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" />
+                </svg>
+            </li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gutschein-hero">
+        <div class="gutschein-hero-content">
+            <h1>Verschenke kreative Erlebnisse</h1>
+            <p>Unsere Gutscheine bieten deinen Liebsten die Gelegenheit, in entspannter Atmosphäre handgefertigte Keramik selbst zu bemalen und einzigartige Unikate zu gestalten. Das perfekte Geschenk für kreative Köpfe und alle, die eine entspannte, kreative Auszeit suchen.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="gutschein-main">
+        <div class="gutschein-container">
+            <!-- Gutschein Preview -->
+            <div class="gutschein-preview">
+                <div class="gutschein-image-wrapper">
+                    <img src="./gutschein.avif" alt="Layers Gutschein" class="gutschein-image">
+                </div>
+            </div>
+
+            <!-- Purchase Form -->
+            <div class="gutschein-form">
+                <h2>Gutschein kaufen</h2>
+                <p>Wähle den gewünschten Betrag und die Anzahl der Gutscheine. Unsere Gutscheine sind 3 Jahre gültig.</p>
+                
+                <form id="gutscheinForm">
+                    <div class="form-group required">
+                        <label for="betrag">Gewünschter Betrag</label>
+                        <div class="select-wrapper">
+                            <select id="betrag" class="form-control" required>
+                                <option value="">Auswählen</option>
+                                <option value="15">15,00 €</option>
+                                <option value="20">20,00 €</option>
+                                <option value="25">25,00 €</option>
+                                <option value="30">30,00 €</option>
+                                <option value="40">40,00 €</option>
+                                <option value="50">50,00 €</option>
+                                <option value="75">75,00 €</option>
+                                <option value="100">100,00 €</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group required">
+                        <label for="anzahl">Anzahl</label>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn" onclick="changeQuantity(-1)">−</button>
+                            <input type="number" id="anzahl" class="quantity-input" value="1" min="1" max="10" required>
+                            <button type="button" class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="price-display">
+                        <div class="price-label">Gesamtpreis</div>
+                        <div class="price-amount" id="totalPrice">0,00 €</div>
+                        <div class="price-note">inkl. MwSt.</div>
+                    </div>
+
+                    <button type="submit" class="checkout-btn" id="checkoutBtn" disabled>
+                        <span>In den Warenkorb</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="gutschein-benefits">
+        <div class="benefits-container">
+            <h2>Warum layers Gutscheine?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎨</div>
+                    <h3>Kreative Auszeit</h3>
+                    <p>Entspannung und Kreativität in unserem gemütlichen Studio. Perfekt zum Abschalten vom Alltag.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💝</div>
+                    <h3>Perfektes Geschenk</h3>
+                    <p>Für Geburtstage, Weihnachten oder einfach als kleine Aufmerksamkeit – immer eine schöne Überraschung.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⏰</div>
+                    <h3>3 Jahre gültig</h3>
+                    <p>Lange Gültigkeit für maximale Flexibilität. Kein Zeitdruck, wann der Gutschein eingelöst wird.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏺</div>
+                    <h3>Einzigartige Erinnerung</h3>
+                    <p>Jedes bemalte Stück wird zu einem persönlichen Unikat, das lange Freude bereitet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="gutschein-info">
+        <div class="info-container">
+            <h2>Wichtige Informationen</h2>
+            <p><strong>Gültigkeit:</strong> Unsere Gutscheine sind 3 Jahre ab Kaufdatum gültig.</p>
+            <p><strong>Einlösung:</strong> Der Gutschein kann bei der Buchung online oder direkt im Studio eingelöst werden.</p>
+            <p><strong>Übertragbar:</strong> Gutscheine können gerne an andere Personen weitergegeben werden.</p>
+            <p><strong>Kombination:</strong> Mehrere Gutscheine können für einen Besuch kombiniert werden.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#faq">faq</a>
+                <a href="#about">über layers</a>
+                <a href="#kontakt">kontakt</a>
+            </div>
+            <div class="footer-section">
+                <h4>Rechtliches</h4>
+                <a href="#impressum">impressum</a>
+                <a href="#agb">agb</a>
+                <a href="#datenschutz">datenschutz</a>
+            </div>
+            <div class="footer-section">
+                <h4>Folge uns</h4>
+                <div class="social-links">
+                    <a href="#">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Platz buchen</h4>
+                <a href="#" class="btn btn-primary" style="margin-top: 1rem;">Platz buchen</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Quantity control functions
+        function changeQuantity(change) {
+            const quantityInput = document.getElementById('anzahl');
+            let currentValue = parseInt(quantityInput.value);
+            let newValue = currentValue + change;
+            
+            if (newValue >= 1 && newValue <= 10) {
+                quantityInput.value = newValue;
+                updatePrice();
+            }
+        }
+
+        // Update price calculation
+        function updatePrice() {
+            const betragSelect = document.getElementById('betrag');
+            const anzahlInput = document.getElementById('anzahl');
+            const totalPriceElement = document.getElementById('totalPrice');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            
+            const betrag = parseFloat(betragSelect.value) || 0;
+            const anzahl = parseInt(anzahlInput.value) || 1;
+            const total = betrag * anzahl;
+            
+            totalPriceElement.textContent = total.toFixed(2).replace('.', ',') + ' €';
+            
+            // Enable/disable checkout button
+            if (betrag > 0) {
+                checkoutBtn.disabled = false;
+                checkoutBtn.style.opacity = '1';
+                checkoutBtn.style.cursor = 'pointer';
+            } else {
+                checkoutBtn.disabled = true;
+                checkoutBtn.style.opacity = '0.5';
+                checkoutBtn.style.cursor = 'not-allowed';
+            }
+        }
+
+        // Event listeners
+        document.getElementById('betrag').addEventListener('change', updatePrice);
+        document.getElementById('anzahl').addEventListener('input', updatePrice);
+
+        // Form submission
+        document.getElementById('gutscheinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const betrag = document.getElementById('betrag').value;
+            const anzahl = document.getElementById('anzahl').value;
+            
+            if (betrag && anzahl) {
+                // Here you would integrate with your SumUp payment system
+                // For now, we'll show an alert
+                alert(`Weiterleitung zur Bezahlung:\n${anzahl}x Gutschein à ${betrag}€\nGesamtpreis: ${(parseFloat(betrag) * parseInt(anzahl)).toFixed(2)}€`);
+                
+                // Example of how you might integrate with SumUp:
+                // window.location.href = `your-sumup-checkout-url?amount=${total}&description=Layers Gutschein`;
+            }
+        });
+
+        // Initialize price on page load
+        updatePrice();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#' || !targetId.startsWith('#')) return;
+                
+                e.preventDefault();
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
