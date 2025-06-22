@@ -6,280 +6,410 @@
     <title>Gruppenevents - Layers Cologne</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Page-specific styles for gruppenevent page - clean modern design */
-        
-        /* Hero Section - similar to homepage but with different background */
+        /* Modern, attractive design for group events */
+        :root {
+            --primary-navy: #2c3e50;
+            --primary-orange: #e94560;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --text-light: #666;
+            --bg-cream: #fefcf8;
+            --accent-gold: #f39c12;
+            --soft-blue: #3498db;
+        }
+
+        /* Hero Section - Large, inspiring */
         .hero {
             margin-top: 80px;
-            min-height: 70vh;
+            min-height: 85vh;
+            background: linear-gradient(135deg, 
+                rgba(44, 62, 80, 0.95), 
+                rgba(233, 69, 96, 0.9)
+            ), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,150 600,300 T1200,300 V600 H0 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
+            color: var(--white);
             position: relative;
             overflow: hidden;
-            background: var(--bg-cream);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="30" r="3" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="80" r="1.5" fill="rgba(255,255,255,0.08)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 5%;
-            align-items: center;
+            padding: 0 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero-text {
-            animation: fadeInLeft 1s ease-out;
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease-out;
         }
 
-        .hero-text h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.2;
-            margin-bottom: 2rem;
-            color: var(--primary-navy);
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            opacity: 0.95;
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
-        .hero-text p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            line-height: 1.8;
+        .hero-cta {
+            display: inline-flex;
+            gap: 1rem;
             animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
-        .hero-image {
-            position: relative;
-            animation: fadeInRight 1s ease-out;
+        .cta-button {
+            background: var(--primary-orange);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(233, 69, 96, 0.3);
         }
 
-        .hero-image-wrapper {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: var(--transition);
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(233, 69, 96, 0.4);
         }
 
-        .hero-image-wrapper:hover {
-            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+            box-shadow: none;
         }
 
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Event Types Section - clean grid */
-        .event-types {
-            padding: 6rem 5%;
-            background-color: var(--white);
-        }
-
-        .event-types-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+        .cta-button.secondary:hover {
+            background: var(--white);
             color: var(--primary-navy);
-            margin-bottom: 1rem;
         }
 
-        .section-title p {
+        /* Event Types Section */
+        .event-types {
+            padding: 6rem 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
             font-size: 1.2rem;
             color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
             line-height: 1.8;
         }
 
-        .events-grid {
+        .event-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .event-type-card {
+        .event-card {
             background: var(--white);
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-            border: 1px solid #f0f0f0;
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .event-type-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border-color: var(--primary-orange);
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, var(--primary-orange), var(--accent-gold));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
         }
 
         .event-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--primary-orange), #FF6B1A);
-            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-orange), var(--accent-gold));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
             font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
         }
 
-        .event-type-card h3 {
+        .event-card h3 {
             font-size: 1.5rem;
             color: var(--primary-navy);
             margin-bottom: 1rem;
             font-weight: 600;
         }
 
-        .event-type-card p {
+        .event-card p {
             color: var(--text-light);
             line-height: 1.7;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        .event-type-card .btn {
-            width: 100%;
-            padding: 0.8rem 1.5rem;
-            font-size: 1rem;
+        .event-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .event-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .event-features li::before {
+            content: '✓';
+            color: #4ade80;
+            font-weight: bold;
+            font-size: 1.1rem;
         }
 
         /* Benefits Section */
         .benefits {
-            padding: 6rem 5%;
-            background-color: var(--bg-cream);
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--bg-cream), var(--light-gray));
+            position: relative;
         }
 
-        .benefits-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
+        .benefits::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,100 Q300,50 600,100 T1200,100 V0 H0 Z" fill="rgba(255,255,255,0.7)"/></svg>');
+            background-size: cover;
         }
 
-        .benefits h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--primary-navy);
-            margin-bottom: 3rem;
+        .benefits-content {
+            position: relative;
+            z-index: 1;
         }
 
-        .benefits-list {
+        .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .benefit-item {
+        .benefit-card {
             background: var(--white);
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 2rem;
-            text-align: left;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
         }
 
-        .benefit-item:hover {
+        .benefit-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
 
-        .benefit-item .icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-orange), #FF6B1A);
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--soft-blue), var(--primary-orange));
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
         }
 
-        .benefit-item h3 {
+        .benefit-card h3 {
+            font-size: 1.3rem;
             color: var(--primary-navy);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
             font-weight: 600;
         }
 
-        .benefit-item p {
+        .benefit-card p {
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         /* CTA Section */
         .cta-section {
-            padding: 5rem 5%;
-            background: linear-gradient(135deg, var(--primary-navy), #34495e);
+            padding: 6rem 0;
+            background: var(--primary-navy);
             color: var(--white);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(233, 69, 96, 0.1), 
+                rgba(243, 156, 18, 0.1)
+            );
         }
 
         .cta-content {
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .cta-section h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+        .cta-content h2 {
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
+            font-weight: 700;
         }
 
-        .cta-section p {
+        .cta-content p {
             font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
             opacity: 0.9;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
+            .hero {
+                min-height: 70vh;
+                padding: 2rem 0;
             }
-
-            .hero-image-wrapper {
-                transform: none;
+            
+            .hero h1 {
+                font-size: 2.5rem;
             }
-
-            .events-grid {
-                grid-template-columns: 1fr;
+            
+            .hero p {
+                font-size: 1.1rem;
             }
-
-            .benefits-list {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
+            
+            .hero-cta {
                 flex-direction: column;
                 align-items: center;
             }
-
-            .cta-buttons .btn {
-                width: 100%;
-                max-width: 300px;
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .event-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .event-card {
+                padding: 2rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -294,12 +424,12 @@
             <li><a href="index.html">home</a></li>
             <li><a href="gruppenevent.html" class="active">gruppenevent</a></li>
             <li><a href="gutschein.html">gutscheine</a></li>
-            <li><a href="#sortiment">sortiment & preise</a></li>
-            <li><a href="#keramik">keramik@home</a></li>
-            <li><a href="#abholzeiten">aktuelle abholzeiten</a></li>
-            <li><a href="#faq">faq</a></li>
-            <li><a href="#about">über layers</a></li>
-            <li><a href="#kontakt">kontakt</a></li>
+            <li><a href="index.html#sortiment">sortiment & preise</a></li>
+            <li><a href="index.html#keramik">keramik@home</a></li>
+            <li><a href="index.html#abholzeiten">aktuelle abholzeiten</a></li>
+            <li><a href="index.html#faq">faq</a></li>
+            <li><a href="index.html#about">über layers</a></li>
+            <li><a href="index.html#kontakt">kontakt</a></li>
             <li>
                 <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" />
@@ -318,85 +448,146 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-text">
-                <h1>Gruppenevents bei layers</h1>
-                <p>Ob JGA, Geburtstag oder Teamevent – gestaltet gemeinsam unvergessliche Momente in unserem kreativen Studio. Private Atmosphäre, persönliche Betreuung und jede Menge Spaß beim Keramikbemalen warten auf euch.</p>
-            </div>
-            <div class="hero-image">
-                <div class="hero-image-wrapper">
-                    <img src="./layers logo-3.avif" alt="Gruppenevent bei layers" style="height: 400px; object-fit: cover;">
-                </div>
+            <h1>Unvergessliche Gruppenevents</h1>
+            <p>Kreative Teambuilding-Erlebnisse, Geburtstagsfeiern und besondere Anlässe in entspannter Atmosphäre. Gestaltet gemeinsam einzigartige Keramik-Kunstwerke.</p>
+            <div class="hero-cta">
+                <a href="#kontakt" class="cta-button">Event anfragen</a>
+                <a href="#event-types" class="cta-button secondary">Mehr erfahren</a>
             </div>
         </div>
     </section>
 
     <!-- Event Types Section -->
-    <section class="event-types">
-        <div class="event-types-container">
-            <div class="section-title">
-                <h2>Welches Event darf es sein?</h2>
-                <p>Von der intimen Geburtstagsfeier bis zum großen Teamevent – wir haben für jeden Anlass das passende Angebot.</p>
+    <section class="event-types" id="event-types">
+        <div class="section-header">
+            <h2>Unsere Event-Formate</h2>
+            <p>Ob Teambuilding, Geburtstagsfeiern oder Junggesellenabschied – wir bieten das perfekte kreative Erlebnis für jede Gruppe und jeden Anlass.</p>
+        </div>
+        
+        <div class="event-grid">
+            <div class="event-card fade-in">
+                <div class="event-icon">🎨</div>
+                <h3>Teambuilding Events</h3>
+                <p>Stärken Sie den Zusammenhalt Ihres Teams durch gemeinsame kreative Aktivitäten in entspannter Atmosphäre.</p>
+                <ul class="event-features">
+                    <li>Für 8-20 Personen</li>
+                    <li>2-3 Stunden Dauer</li>
+                    <li>Professionelle Anleitung</li>
+                    <li>Alle Materialien inklusive</li>
+                    <li>Getränke und Snacks verfügbar</li>
+                </ul>
             </div>
-            
-            <div class="events-grid">
-                <div class="event-type-card">
-                    <div class="event-icon">🎂</div>
-                    <h3>Geburtstagsfeiern</h3>
-                    <p>Feiert euren besonderen Tag kreativ und unvergesslich. Individuelle Kunstwerke als bleibende Erinnerung für alle Gäste.</p>
-                    <a href="#geburtstag-details" class="btn btn-primary">Mehr erfahren</a>
-                </div>
-                
-                <div class="event-type-card">
-                    <div class="event-icon">🎨</div>
-                    <h3>Kindergeburtstag</h3>
-                    <p>Bunter Kindergeburtstag mit viel Spaß. Kleine Künstler:innen gestalten stolz ihre eigenen Meisterwerke.</p>
-                    <a href="#kindergeburtstag-details" class="btn btn-primary">Mehr erfahren</a>
-                </div>
-                
-                <div class="event-type-card">
-                    <div class="event-icon">💍</div>
-                    <h3>JGA</h3>
-                    <p>Der perfekte Junggesellenabschied in kreativer Atmosphäre. Gestaltet gemeinsam Erinnerungsstücke für die Ewigkeit.</p>
-                    <a href="#jga-details" class="btn btn-primary">Mehr erfahren</a>
-                </div>
-                
-                <div class="event-type-card">
-                    <div class="event-icon">🤝</div>
-                    <h3>Teamevent & B2B</h3>
-                    <p>Stärkt euren Teamgeist beim gemeinsamen Keramikbemalen. Kreativität und Zusammenarbeit in entspannter Atmosphäre.</p>
-                    <a href="#teamevent-details" class="btn btn-primary">Mehr erfahren</a>
-                </div>
+
+            <div class="event-card fade-in">
+                <div class="event-icon">🎂</div>
+                <h3>Geburtstagsfeiern</h3>
+                <p>Feiern Sie Ihren besonderen Tag mit Freunden und Familie bei einer kreativen Keramik-Session.</p>
+                <ul class="event-features">
+                    <li>Für 6-15 Personen</li>
+                    <li>2-4 Stunden Dauer</li>
+                    <li>Individuelle Gestaltung</li>
+                    <li>Geschenke-Ecke möglich</li>
+                    <li>Dekoration inklusive</li>
+                </ul>
+            </div>
+
+            <div class="event-card fade-in">
+                <div class="event-icon">👰</div>
+                <h3>Junggesellenabschied</h3>
+                <p>Ein unvergesslicher Junggesellenabschied der besonderen Art – kreativ, entspannt und voller schöner Erinnerungen.</p>
+                <ul class="event-features">
+                    <li>Für 4-12 Personen</li>
+                    <li>2-3 Stunden Dauer</li>
+                    <li>Champagner-Empfang</li>
+                    <li>Spezielle Keramik-Projekte</li>
+                    <li>Erinnerungsfotos</li>
+                </ul>
+            </div>
+
+            <div class="event-card fade-in">
+                <div class="event-icon">🏢</div>
+                <h3>Firmenfeiern</h3>
+                <p>Entspannte Firmenfeiern mit kreativem Twist – perfekt für Weihnachtsfeiern, Jubiläen oder Projektabschlüsse.</p>
+                <ul class="event-features">
+                    <li>Für 10-30 Personen</li>
+                    <li>3-4 Stunden Dauer</li>
+                    <li>Catering-Service</li>
+                    <li>Firmen-Branding möglich</li>
+                    <li>Flexible Termine</li>
+                </ul>
+            </div>
+
+            <div class="event-card fade-in">
+                <div class="event-icon">👨‍👩‍👧‍👦</div>
+                <h3>Familien-Events</h3>
+                <p>Kreative Familienzeit für Groß und Klein – gemeinsam Keramik bemalen und wertvolle Erinnerungen schaffen.</p>
+                <ul class="event-features">
+                    <li>Für 4-20 Personen</li>
+                    <li>1-3 Stunden Dauer</li>
+                    <li>Kinderfreundliche Projekte</li>
+                    <li>Flexible Altersgruppen</li>
+                    <li>Familienrabatte</li>
+                </ul>
+            </div>
+
+            <div class="event-card fade-in">
+                <div class="event-icon">🎓</div>
+                <h3>Schulklassen & Kitas</h3>
+                <p>Pädagogisch wertvolle Kreativ-Workshops für Schulklassen und Kindergartengruppen.</p>
+                <ul class="event-features">
+                    <li>Für 15-25 Personen</li>
+                    <li>2 Stunden Dauer</li>
+                    <li>Pädagogische Betreuung</li>
+                    <li>Altersgerechte Projekte</li>
+                    <li>Spezielle Gruppenpreise</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <!-- Benefits Section -->
     <section class="benefits">
-        <div class="benefits-container">
-            <h2>Warum ein Event bei layers?</h2>
-            <div class="benefits-list">
-                <div class="benefit-item">
-                    <div class="icon">🎨</div>
-                    <h3>Kreative Entspannung</h3>
-                    <p>Beim Keramikbemalen könnt ihr als Gruppe entspannen und eurer Kreativität freien Lauf lassen. Ohne Stress, dafür mit jeder Menge Spaß.</p>
+        <div class="benefits-content">
+            <div class="section-header">
+                <h2>Warum Layers für Ihr Event?</h2>
+                <p>Wir bieten mehr als nur Keramik bemalen – wir schaffen unvergessliche Erlebnisse mit professioneller Betreuung.</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Professionelle Betreuung</h3>
+                    <p>Unser erfahrenes Team begleitet Sie durch den gesamten Prozess und sorgt für ein entspanntes Erlebnis.</p>
                 </div>
-                
-                <div class="benefit-item">
-                    <div class="icon">🏠</div>
-                    <h3>Private Atmosphäre</h3>
-                    <p>Das ganze Studio nur für euch! Genießt die ungestörte Zeit miteinander in unserer gemütlichen Kreativ-Oase.</p>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🏺</div>
+                    <h3>Hochwertige Materialien</h3>
+                    <p>Nur beste Keramik und Farben für langlebige Kunstwerke, die Sie stolz mit nach Hause nehmen.</p>
                 </div>
-                
-                <div class="benefit-item">
-                    <div class="icon">🎁</div>
-                    <h3>Bleibende Erinnerungen</h3>
-                    <p>Jedes bemalte Stück wird zu einem persönlichen Unikat und einer wunderschönen Erinnerung an euren gemeinsamen Tag.</p>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🎨</div>
+                    <h3>Kreative Vielfalt</h3>
+                    <p>Große Auswahl an Keramik-Objekten und Techniken für jeden Geschmack und jedes Können.</p>
                 </div>
-                
-                <div class="benefit-item">
-                    <div class="icon">💬</div>
-                    <h3>Gemeinsam erleben</h3>
-                    <p>Abseits des Alltags kommt ihr euch näher, tauscht euch aus und stärkt eure Verbindung zueinander.</p>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">☕</div>
+                    <h3>Gemütliche Atmosphäre</h3>
+                    <p>Entspannte Umgebung mit Getränken und Snacks für ein rundum angenehmes Erlebnis.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">📅</div>
+                    <h3>Flexible Termine</h3>
+                    <p>Wir passen uns Ihren Wünschen an – auch abends und am Wochenende verfügbar.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🎁</div>
+                    <h3>Besondere Extras</h3>
+                    <p>Geschenke-Service, Dekoration und individuelle Gestaltung für Ihren besonderen Anlass.</p>
                 </div>
             </div>
         </div>
@@ -405,78 +596,23 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2>Bereit für euer Event?</h2>
-            <p>Plant gemeinsam mit uns euer unvergessliches Gruppenerlebnis. Wir freuen uns darauf, euren besonderen Tag zu etwas ganz Besonderem zu machen!</p>
+            <h2>Bereit für Ihr Event?</h2>
+            <p>Kontaktieren Sie uns für ein individuelles Angebot. Wir beraten Sie gerne und planen gemeinsam Ihr perfektes Gruppenerlebnis.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">Event anfragen</a>
-                <a href="#kontakt" class="btn btn-secondary">Beratung buchen</a>
+                <a href="index.html#kontakt" class="cta-button">Event anfragen</a>
+                <a href="tel:+4922112345678" class="cta-button secondary">Anrufen</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="#faq">faq</a>
-                <a href="#about">über layers</a>
-                <a href="#kontakt">kontakt</a>
-            </div>
-            <div class="footer-section">
-                <h4>Rechtliches</h4>
-                <a href="#impressum">impressum</a>
-                <a href="#agb">agb</a>
-                <a href="#datenschutz">datenschutz</a>
-            </div>
-            <div class="footer-section">
-                <h4>Folge uns</h4>
-                <div class="social-links">
-                    <a href="#">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
-                        </svg>
-                    </a>
-                    <a href="#">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Platz buchen</h4>
-                <a href="#" class="btn btn-primary" style="margin-top: 1rem;">Platz buchen</a>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
         // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
-        menuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            menuToggle.classList.toggle('active');
         });
 
         // Smooth scrolling for navigation links
@@ -495,6 +631,29 @@
                     });
                 }
             });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
         });
     </script>
 </body>
