@@ -6,66 +6,76 @@
     <title>Gutscheine - Layers Cologne</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Page-specific styles for gutscheine */
+        /* Page-specific styles for gutscheine - clean modern design */
         
-        .gutschein-hero {
+        .hero {
             margin-top: 80px;
-            padding: 4rem 5%;
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-orange) 100%);
-            color: var(--white);
-            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
             position: relative;
             overflow: hidden;
+            background: var(--bg-cream);
         }
 
-        .gutschein-hero::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            left: -100px;
-            width: 300px;
-            height: 300px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .gutschein-hero::after {
-            content: '';
-            position: absolute;
-            bottom: -80px;
-            right: -80px;
-            width: 200px;
-            height: 200px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite reverse;
-        }
-
-        .gutschein-hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 5%;
+            align-items: center;
         }
 
-        .gutschein-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease-out;
+        .hero-text {
+            animation: fadeInLeft 1s ease-out;
         }
 
-        .gutschein-hero p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            opacity: 0.9;
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            color: var(--primary-navy);
             animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition);
+        }
+
+        .hero-image-wrapper:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Main content section */
         .gutschein-main {
-            padding: 5rem 5%;
-            background-color: var(--bg-cream);
+            padding: 6rem 5%;
+            background-color: var(--white);
         }
 
         .gutschein-container {
@@ -108,7 +118,8 @@
             background-color: var(--white);
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f0;
             animation: fadeInRight 1s ease-out;
         }
 
@@ -267,8 +278,8 @@
 
         /* Benefits section */
         .gutschein-benefits {
-            padding: 5rem 5%;
-            background-color: var(--white);
+            padding: 6rem 5%;
+            background-color: var(--bg-cream);
         }
 
         .benefits-container {
@@ -291,37 +302,22 @@
 
         .benefit-item {
             padding: 2.5rem;
-            background-color: var(--bg-cream);
-            border-radius: 24px;
+            background-color: var(--white);
+            border-radius: 20px;
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .benefit-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-orange), var(--primary-navy));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .benefit-item:hover::before {
-            transform: scaleX(1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
         }
 
         .benefit-item:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-orange);
         }
 
         .benefit-icon {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .benefit-item h3 {
@@ -338,7 +334,7 @@
         /* Info section */
         .gutschein-info {
             padding: 5rem 5%;
-            background-color: var(--bg-cream);
+            background-color: var(--white);
         }
 
         .info-container {
@@ -361,6 +357,16 @@
 
         /* Responsive design */
         @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-image-wrapper {
+                transform: none;
+            }
+
             .gutschein-container {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -374,10 +380,6 @@
             .gutschein-form {
                 order: 1;
                 padding: 2rem;
-            }
-
-            .gutschein-image-wrapper {
-                transform: none;
             }
 
             .quantity-control {
@@ -423,10 +425,17 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="gutschein-hero">
-        <div class="gutschein-hero-content">
-            <h1>Verschenke kreative Erlebnisse</h1>
-            <p>Unsere Gutscheine bieten deinen Liebsten die Gelegenheit, in entspannter Atmosphäre handgefertigte Keramik selbst zu bemalen und einzigartige Unikate zu gestalten. Das perfekte Geschenk für kreative Köpfe und alle, die eine entspannte, kreative Auszeit suchen.</p>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Verschenke kreative Erlebnisse</h1>
+                <p>Unsere Gutscheine bieten deinen Liebsten die Gelegenheit, in entspannter Atmosphäre handgefertigte Keramik selbst zu bemalen und einzigartige Unikate zu gestalten. Das perfekte Geschenk für kreative Köpfe und alle, die eine entspannte, kreative Auszeit suchen.</p>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="./gutschein.avif" alt="Layers Gutschein">
+                </div>
+            </div>
         </div>
     </section>
 

@@ -5,8 +5,287 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gruppenevents - Layers Cologne</title>
     <link rel="stylesheet" href="style.css">
-    </head>
+    <style>
+        /* Page-specific styles for gruppenevent page - clean modern design */
+        
+        /* Hero Section - similar to homepage but with different background */
+        .hero {
+            margin-top: 80px;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-cream);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            color: var(--primary-navy);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition);
+        }
+
+        .hero-image-wrapper:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Event Types Section - clean grid */
+        .event-types {
+            padding: 6rem 5%;
+            background-color: var(--white);
+        }
+
+        .event-types-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .event-type-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+        }
+
+        .event-type-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-orange);
+        }
+
+        .event-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-orange), #FF6B1A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .event-type-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .event-type-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .event-type-card .btn {
+            width: 100%;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 6rem 5%;
+            background-color: var(--bg-cream);
+        }
+
+        .benefits-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .benefits h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--primary-navy);
+            margin-bottom: 3rem;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-item .icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-orange), #FF6B1A);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .benefit-item h3 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .benefit-item p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, var(--primary-navy), #34495e);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-image-wrapper {
+                transform: none;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
 <body>
+    <!-- Navigation -->
     <nav id="navbar">
         <a href="index.html" class="logo">
             <img src="./layers logo-3.avif" alt="Layers Logo" class="logo-img">
@@ -36,179 +315,106 @@
         </div>
     </nav>
 
-    <section class="page-hero">
-        <div class="page-hero-content">
-            <h1>JGA, Geburtstage, Teamevents - bei uns oder bei euch?</h1>
-            <p>Ihr möchtet das layers ganz für euch alleine? Oder ihr möchtet, dass wir zu euch kommen? Lasst uns euren Tag gemeinsam zu etwas Besonderem machen!</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Gruppenevents bei layers</h1>
+                <p>Ob JGA, Geburtstag oder Teamevent – gestaltet gemeinsam unvergessliche Momente in unserem kreativen Studio. Private Atmosphäre, persönliche Betreuung und jede Menge Spaß beim Keramikbemalen warten auf euch.</p>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="./layers logo-3.avif" alt="Gruppenevent bei layers" style="height: 400px; object-fit: cover;">
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="event-grid-section">
-        <div class="event-grid">
-            <a href="#geburtstagsfeier" class="event-card">
-                <div class="event-card-content">
-                    <h3>Geburtstagsfeier</h3>
-                    <p>Feiert euren besonderen Tag kreativ und unvergesslich im layers oder lasst ihn in eurer Wunschlocation steigen.</p>
+    <!-- Event Types Section -->
+    <section class="event-types">
+        <div class="event-types-container">
+            <div class="section-title">
+                <h2>Welches Event darf es sein?</h2>
+                <p>Von der intimen Geburtstagsfeier bis zum großen Teamevent – wir haben für jeden Anlass das passende Angebot.</p>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-type-card">
+                    <div class="event-icon">🎂</div>
+                    <h3>Geburtstagsfeiern</h3>
+                    <p>Feiert euren besonderen Tag kreativ und unvergesslich. Individuelle Kunstwerke als bleibende Erinnerung für alle Gäste.</p>
+                    <a href="#geburtstag-details" class="btn btn-primary">Mehr erfahren</a>
                 </div>
-                <span class="event-card-arrow">→</span>
-            </a>
-            <a href="#kindergeburtstag" class="event-card">
-                 <div class="event-card-content">
+                
+                <div class="event-type-card">
+                    <div class="event-icon">🎨</div>
                     <h3>Kindergeburtstag</h3>
-                    <p>Kreativer Kindergeburtstag im layers. Macht den besonderen Anlass deines Kindes zu einem unvergesslichen Teamerlebnis.</p>
+                    <p>Bunter Kindergeburtstag mit viel Spaß. Kleine Künstler:innen gestalten stolz ihre eigenen Meisterwerke.</p>
+                    <a href="#kindergeburtstag-details" class="btn btn-primary">Mehr erfahren</a>
                 </div>
-                <span class="event-card-arrow">→</span>
-            </a>
-            <a href="#jga" class="event-card">
-                 <div class="event-card-content">
+                
+                <div class="event-type-card">
+                    <div class="event-icon">💍</div>
                     <h3>JGA</h3>
-                    <p>Dein kreativer Junggesellenabschied im layers. So gelingt der Start in ein neues Kapitel garantiert.</p>
+                    <p>Der perfekte Junggesellenabschied in kreativer Atmosphäre. Gestaltet gemeinsam Erinnerungsstücke für die Ewigkeit.</p>
+                    <a href="#jga-details" class="btn btn-primary">Mehr erfahren</a>
                 </div>
-                <span class="event-card-arrow">→</span>
-            </a>
-            <a href="#teamevent" class="event-card">
-                 <div class="event-card-content">
+                
+                <div class="event-type-card">
+                    <div class="event-icon">🤝</div>
                     <h3>Teamevent & B2B</h3>
-                    <p>Stärk euer Zusammengehörigkeitsgefühl und eure Kreativität. Kreative Auszeit mit dem Team.</p>
+                    <p>Stärkt euren Teamgeist beim gemeinsamen Keramikbemalen. Kreativität und Zusammenarbeit in entspannter Atmosphäre.</p>
+                    <a href="#teamevent-details" class="btn btn-primary">Mehr erfahren</a>
                 </div>
-                <span class="event-card-arrow">→</span>
-            </a>
-        </div>
-    </section>
-
-    <section id="geburtstagsfeier" class="event-detail-single">
-        <div class="event-detail-content">
-            <div class="event-detail-text">
-                <h2>Dein Geburtstag im layers</h2>
-                <p>Kreativer Geburtstag in Köln? Feiert im layers & bemalt gemeinsam Keramik! Ein unvergessliches Event mit individuellen Kunstwerken als bleibende Erinnerung für alle.</p>
-                <div class="price-tag">549€ bis zu 10 Personen, jede weitere Person 55€</div>
-                <h3>Was ist drin?</h3>
-                <ul class="event-features">
-                    <li>Private Nutzung des layers</li>
-                    <li>2 - 2,5 Stunden Keramik bemalen</li>
-                    <li>Studiopauschale im Wert von 9,90€ (Betreuung, Glasieren und Brennen)</li>
-                    <li>Keramikguthaben im Wert von 25€ pro Person</li>
-                    <li>1 Freigetränk: Cappuccino oder doch lieber 'ne Apfelschorle?</li>
-                    <li>Alle Farben & Utensilien</li>
-                    <li>Eine kleine Überraschung</li>
-                </ul>
-                <a href="#" class="btn btn-primary">Anfrage senden</a>
-            </div>
-            <div class="event-detail-image-wrapper">
-                 <h3>Wir sollen lieber zu euch kommen? Kein Problem</h3>
-                 <p>Genießt euer Event bequem an eurer Wunschlocation! Im Büro, im Garten, egal wo. Ob Geburtstag, JGA, Kinderparty ...</p>
-                 <p><strong>+ Mehr dazu</strong></p>
-                 <p class="anmerkung">Zur verbindlichen Buchung ist eine Anzahlung von 149€ zu leisten.</p>
             </div>
         </div>
     </section>
 
-    <section id="kindergeburtstag" class="event-detail-single alternate-bg">
-        <div class="event-detail-content">
-             <div class="event-detail-text">
-                <h2>Dein Kindergeburtstag im layers</h2>
-                <p>Bunter Kindergeburtstag im layers in Köln: Kleine Künstler:innen bemalen Keramik und gestalten stolz ihr eigenes Meisterwerk. Kreativ feiern mit Spaßgarantie für alle Kids!</p>
-                <div class="price-tag">390€ bis zu 10 Kinder, jedes weitere Kind 29€</div>
-                <h3>Was ist drin?</h3>
-                <ul class="event-features">
-                    <li>Private Nutzung des layers</li>
-                    <li>2 - 2,5 Stunden Keramik bemalen</li>
-                    <li>Studiopauschale im Wert von 0,00€ (Betreuung, Glasieren und Brennen)</li>
-                    <li>Keramikguthaben im Wert von 10€ pro Kind</li>
-                    <li>Ein Geburtstagsteller, auf dem sich jedes Kind verewigen darf im Wert von 39€</li>
-                    <li>1 Freigetränk: Apfelschorle oder heute doch mal eine Cola?</li>
-                    <li>Alle Farben & Utensilien</li>
-                </ul>
-                <a href="#" class="btn btn-primary">Anfrage senden</a>
-            </div>
-             <div class="event-detail-image-wrapper">
-                 <h3>Wir sollen lieber zu euch kommen? Kein Problem</h3>
-                 <p>Genießt euer Event bequem an eurer Wunschlocation! Im Büro, im Garten, egal wo. Ob Geburtstag, JGA, Kinderparty ...</p>
-                 <p><strong>+ Mehr dazu</strong></p>
-                 <p class="anmerkung">Zur verbindlichen Buchung ist eine Anzahlung von 119€ zu leisten.</p>
-            </div>
-        </div>
-    </section>
-    
-    <section id="jga" class="event-detail-single">
-        <div class="event-detail-content">
-             <div class="event-detail-text">
-                <h2>Dein JGA im layers</h2>
-                <p>Feiert euren JGA in kreativer Atmosphäre in unserem Keramik-Studio. Gestaltet gemeinsam Erinnerungsstücke und erlebt unvergessliche Momente mit euren engsten Freundinnen und Freunden.</p>
-                <div class="price-tag">549€ bis zu 10 Personen, jede weitere Person 55€</div>
-                <h3>Was ist drin?</h3>
-                <ul class="event-features">
-                    <li>Private Nutzung des layers</li>
-                    <li>2 - 2,5 Stunden Keramik bemalen</li>
-                    <li>Keramikguthaben im Wert von 25€ pro Person</li>
-                    <li>1 Freigetränk: Cappuccino oder doch lieber 'ne Apfelschorle?</li>
-                    <li>Alle Farben & Utensilien</li>
-                    <li>Eine kleine Überraschung</li>
-                </ul>
-                <a href="#" class="btn btn-primary">Anfrage senden</a>
-            </div>
-             <div class="event-detail-image-wrapper">
-                 <h3>Wir sollen lieber zu euch kommen? Kein Problem</h3>
-                 <p>Genießt euer Event bequem an eurer Wunschlocation! Im Büro, im Garten, egal wo. Ob Geburtstag, JGA, Kinderparty ...</p>
-                 <p><strong>+ Mehr dazu</strong></p>
-                 <p class="anmerkung">Zur verbindlichen Buchung ist eine Anzahlung von 149€ zu leisten.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="teamevent" class="event-detail-single alternate-bg">
-        <div class="event-detail-content">
-             <div class="event-detail-text">
-                <h2>Euer Teamevent mit layers & B2B</h2>
-                <p>Stärkt den Teamgeist beim Keramik bemalen im layers! Einzigartiges Teambuilding, das Kreativität und Zusammenarbeit fördert – ideal für den Betriebsausflug. Gerne kommen wir auch zu euch ins Büro, auf euer PR Event, auf euer Festival oder zu eurer Ausstellung.</p>
-                <div class="price-tag">549€ bis zu 10 Personen, jede weitere Person 35€</div>
-                <h3>Was ist drin?</h3>
-                <ul class="event-features">
-                     <li>Private Nutzung des layers</li>
-                     <li>2 - 2,5 Stunden Keramik bemalen</li>
-                     <li>Studiopauschale im Wert von 0,00€ (Betreuung, Glasieren und Brennen)</li>
-                     <li>Keramikguthaben im Wert von 25€ pro Person</li>
-                     <li>Freigetränk: Cappuccino oder auch lieber 'ne Apfelschorle?</li>
-                     <li>Alle Farben & Utensilien</li>
-                     <li>Eine kleine Überraschung</li>
-                </ul>
-                <a href="#" class="btn btn-primary">Anfrage senden</a>
-            </div>
-             <div class="event-detail-image-wrapper">
-                 <h3>Wir sollen lieber zu euch kommen? Kein Problem</h3>
-                 <p>Genießt euer Event bequem an eurer Wunschlocation! Im Büro, im Garten, egal wo. Ob Geburtstag, JGA, Kinderparty ...</p>
-                 <p><strong>+ Mehr dazu</strong></p>
-                 <p class="anmerkung">Zur verbindlichen Buchung ist eine Anzahlung von 149€ zu leisten.</p>
-            </div>
-        </div>
-    </section>
-    
+    <!-- Benefits Section -->
     <section class="benefits">
-    <h2>Benefits</h2>
-    <div class="benefits-grid">
-        <div class="benefit-card">
-            <div class="benefit-icon">🎨</div>
-            <h3>Entspannt buchen &amp; neue Ideen sammeln</h3>
-            <p>Beim Keramikbemalen im layers könnt ihr als Team mal voll Entspannung und ganz entspannt gemeinsam sein. Ohne große Anstrengung kreiert ihr gemeinsam auf neue Gedanken zu kommen und mal anders an Dinge heranzugehen.</p>
+        <div class="benefits-container">
+            <h2>Warum ein Event bei layers?</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="icon">🎨</div>
+                    <h3>Kreative Entspannung</h3>
+                    <p>Beim Keramikbemalen könnt ihr als Gruppe entspannen und eurer Kreativität freien Lauf lassen. Ohne Stress, dafür mit jeder Menge Spaß.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="icon">🏠</div>
+                    <h3>Private Atmosphäre</h3>
+                    <p>Das ganze Studio nur für euch! Genießt die ungestörte Zeit miteinander in unserer gemütlichen Kreativ-Oase.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="icon">🎁</div>
+                    <h3>Bleibende Erinnerungen</h3>
+                    <p>Jedes bemalte Stück wird zu einem persönlichen Unikat und einer wunderschönen Erinnerung an euren gemeinsamen Tag.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="icon">💬</div>
+                    <h3>Gemeinsam erleben</h3>
+                    <p>Abseits des Alltags kommt ihr euch näher, tauscht euch aus und stärkt eure Verbindung zueinander.</p>
+                </div>
+            </div>
         </div>
-        <div class="benefit-card">
-            <div class="benefit-icon">😊</div>
-            <h3>Stress ade &amp; gute Laune im Team</h3>
-            <p>Lasst den Alltagsstress hinter euch und genießt die entspannende Wirkung des Keramik Bau ab bei uns im Team. Kunst ablenken. Neue Energie tanken und dabei durch die krein Kreativität das eigene Wohlbefinden steigern!</p>
-        </div>
-        <div class="benefit-card">
-            <div class="benefit-icon">🌟</div>
-            <h3>Gemeinsam erlebtes &amp; erinnerungswert</h3>
-            <p>Ein Teamevent im layers ist nicht nur für Maler. Es sind gemeinsame Erlebnisse, die Kommunikation fördern und neue Gesichtspunkte und nachths als Team noch lange zusammen.</p>
-        </div>
-        <div class="benefit-card">
-            <div class="benefit-icon">💬</div>
-            <h3>Verbesserte Kommunikation &amp; neue Perspektiven</h3>
-            <p>Abseits des Arbeitsalltags kommen sich Teammitglieder in einer ungezwungenen Atmosphäre näher kennenlernen und tauschen sich aus. Das fördert die Kommunikation, das Verständnis füreinander und die Zusammenarbeit.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Bereit für euer Event?</h2>
+            <p>Plant gemeinsam mit uns euer unvergessliches Gruppenerlebnis. Wir freuen uns darauf, euren besonderen Tag zu etwas ganz Besonderem zu machen!</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Event anfragen</a>
+                <a href="#kontakt" class="btn btn-secondary">Beratung buchen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -246,8 +452,50 @@
     </footer>
 
     <script>
-        // Your existing JS for menu toggle, navbar scroll, etc.
-        // The smooth scroll functionality will work automatically with the new anchor links.
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#' || !targetId.startsWith('#')) return;
+                
+                e.preventDefault();
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
