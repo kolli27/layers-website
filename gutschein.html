@@ -285,20 +285,38 @@
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
         }
 
         .benefit-item {
-            padding: 2rem;
+            padding: 2.5rem;
             background-color: var(--bg-cream);
-            border-radius: 20px;
+            border-radius: 24px;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-orange), var(--primary-navy));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover::before {
+            transform: scaleX(1);
         }
 
         .benefit-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
         .benefit-icon {
@@ -365,6 +383,11 @@
             .quantity-control {
                 justify-content: center;
             }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
     </style>
 </head>
@@ -377,7 +400,7 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">home</a></li>
             <li><a href="gruppenevent.html">gruppenevent</a></li>
-            <li><a href="gutscheine.html" class="active">gutscheine</a></li>
+            <li><a href="gutschein.html" class="active">gutscheine</a></li>
             <li><a href="#sortiment">sortiment & preise</a></li>
             <li><a href="#keramik">keramik@home</a></li>
             <li><a href="#abholzeiten">aktuelle abholzeiten</a></li>
