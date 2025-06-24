@@ -1,18 +1,18 @@
-/* Modern Layers Studio CSS */
+/* Modern Layers Studio CSS - Updated Design */
 :root {
-    --primary: #FF6B35;
-    --primary-dark: #E55A2B;
-    --secondary: #2C3E50;
-    --accent: #F7931E;
-    --background: #FEFEFE;
-    --background-light: #F8F9FA;
-    --text-primary: #2C3E50;
-    --text-secondary: #5A6C7D;
-    --text-light: #8B95A1;
-    --border: #E1E8ED;
-    --shadow-small: 0 2px 4px rgba(0,0,0,0.05);
-    --shadow-medium: 0 4px 12px rgba(0,0,0,0.1);
-    --shadow-large: 0 8px 24px rgba(0,0,0,0.15);
+    --primary: #FF8C42;
+    --primary-dark: #E66A2C;
+    --secondary: #4A5568;
+    --accent: #FFA726;
+    --background: #FEFCF8;
+    --background-light: #FFF8F0;
+    --text-primary: #2D3748;
+    --text-secondary: #4A5568;
+    --text-light: #718096;
+    --border: #E2E8F0;
+    --shadow-small: 0 2px 4px rgba(255, 140, 66, 0.1);
+    --shadow-medium: 0 4px 12px rgba(255, 140, 66, 0.15);
+    --shadow-large: 0 8px 24px rgba(255, 140, 66, 0.2);
     --border-radius: 12px;
     --border-radius-small: 8px;
     --border-radius-large: 20px;
@@ -915,702 +915,70 @@ h4 { font-size: 1.25rem; }
     font-size: 0.875rem;
 }
 
-/* Additional Styles for Group Events Page */
-
-/* Process Steps */
-.process-steps {
+/* Process Section */
+.process-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 32px;
-    margin-top: 40px;
+    margin-top: 48px;
 }
 
-.process-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    text-align: left;
-}
-
-.process-number {
-    width: 50px;
-    height: 50px;
-    background: var(--primary);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.25rem;
-    flex-shrink: 0;
-}
-
-.process-content h4 {
-    margin-bottom: 8px;
-    color: var(--text-primary);
-}
-
-.process-content p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-/* Benefits Grid */
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-    margin-top: 40px;
-}
-
-.benefit-item {
+.process-card {
     text-align: center;
-    padding: 24px;
-}
-
-.benefit-icon {
-    font-size: 3rem;
-    margin-bottom: 16px;
-    display: block;
-}
-
-.benefit-item h4 {
-    margin-bottom: 12px;
-    color: var(--text-primary);
-}
-
-.benefit-item p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-/* FAQ Grid */
-.faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 24px;
-    margin-top: 40px;
-}
-
-.faq-item {
+    padding: 32px 24px;
     background: white;
-    padding: 24px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-small);
     transition: var(--transition);
 }
 
-.faq-item:hover {
-    box-shadow: var(--shadow-medium);
-}
-
-.faq-question {
-    color: var(--text-primary);
-    margin-bottom: 12px;
-    font-size: 1.125rem;
-}
-
-.faq-answer {
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-    .process-steps {
-        grid-template-columns: 1fr;
-    }
-    
-    .process-step {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .benefits-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .faq-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Voucher Page Styles */
-
-/* Voucher Grid */
-.voucher-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-}
-
-.voucher-category {
-    text-align: center;
-}
-
-.voucher-category-title {
-    font-size: 1.75rem;
-    color: var(--text-primary);
-    margin-bottom: 12px;
-}
-
-.voucher-category-description {
-    color: var(--text-secondary);
-    margin-bottom: 32px;
-    font-size: 1.125rem;
-}
-
-.voucher-options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    margin-bottom: 40px;
-}
-
-.voucher-card {
-    background: white;
-    border-radius: var(--border-radius-large);
-    padding: 32px 24px;
-    box-shadow: var(--shadow-small);
-    transition: var(--transition);
-    position: relative;
-    text-align: center;
-}
-
-.voucher-card:hover {
+.process-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-medium);
 }
 
-.voucher-card.featured {
-    border: 2px solid var(--primary);
-    transform: scale(1.02);
-}
-
-.voucher-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: var(--primary);
-    color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.voucher-amount {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 60px;
-}
-
-.voucher-amount svg {
-    width: 40px;
-    height: 40px;
-}
-
-.voucher-title {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-    color: var(--text-primary);
-}
-
-.voucher-description {
-    color: var(--text-secondary);
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-.voucher-features {
-    list-style: none;
-    margin-bottom: 24px;
-    text-align: left;
-}
-
-.voucher-features li {
-    padding: 6px 0;
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-}
-
-.voucher-features li::before {
-    content: '✓';
-    color: var(--primary);
-    font-weight: bold;
-    margin-right: 8px;
-}
-
-.voucher-price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin-top: 16px;
-    margin-bottom: 20px;
-}
-
-/* Custom Voucher */
-.custom-voucher {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    margin-top: 32px;
-}
-
-.custom-voucher-card {
-    background: white;
-    border-radius: var(--border-radius-large);
-    padding: 32px 24px;
-    box-shadow: var(--shadow-small);
-    text-align: center;
-}
-
-.custom-voucher-card h4 {
-    margin-bottom: 12px;
-    color: var(--text-primary);
-}
-
-.custom-voucher-card p {
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-}
-
-.custom-amount-input {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 24px;
-    justify-content: center;
-}
-
-.custom-amount-input input {
-    width: 120px;
-    padding: 12px;
-    border: 2px solid var(--border);
-    border-radius: var(--border-radius);
-    font-size: 16px;
-    text-align: center;
-}
-
-.custom-amount-input span {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-}
-
-/* Voucher Purchase Modal */
-.voucher-purchase-form {
-    max-width: 100%;
-}
-
-.voucher-summary {
-    background: var(--background-light);
-    padding: 24px;
-    border-radius: var(--border-radius);
-    margin-bottom: 24px;
-    text-align: center;
-}
-
-.voucher-amount-display {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin: 12px 0;
-}
-
-.form-section {
-    margin-bottom: 24px;
-}
-
-.form-section h5 {
-    margin-bottom: 16px;
-    color: var(--text-primary);
-}
-
-.form-group {
-    margin-bottom: 16px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 500;
-    color: var(--text-primary);
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid var(--border);
-    border-radius: var(--border-radius);
-    font-size: 16px;
-    font-family: inherit;
-    transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-
-.delivery-options {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.delivery-option {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 16px;
-    border: 2px solid var(--border);
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.delivery-option:hover {
-    border-color: var(--primary);
-}
-
-.delivery-option input[type="radio"] {
-    margin-top: 2px;
-}
-
-.delivery-option input[type="radio"]:checked + .delivery-option-content {
-    color: var(--primary);
-}
-
-.delivery-option-content h6 {
-    margin-bottom: 4px;
-    color: var(--text-primary);
-}
-
-.delivery-option-content p {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin: 0;
-}
-
-.purchase-summary {
-    background: var(--background-light);
-    padding: 20px;
-    border-radius: var(--border-radius);
-    margin-bottom: 24px;
-}
-
-.summary-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-}
-
-.summary-line.total {
-    border-top: 1px solid var(--border);
-    margin-top: 12px;
-    padding-top: 12px;
-    font-size: 1.125rem;
-}
-
-.form-actions {
-    display: flex;
-    gap: 12px;
-    justify-content: flex-end;
-}
-
-.form-actions button {
-    padding: 12px 24px;
-}
-
-@media (max-width: 768px) {
-    .voucher-options {
-        grid-template-columns: 1fr;
-    }
-    
-    .custom-voucher {
-        grid-template-columns: 1fr;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .form-actions {
-        flex-direction: column;
-    }
-    
-    .form-actions button {
-        width: 100%;
-    }
-}
-
-/* Contact Page Styles */
-
-/* Contact Grid */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.contact-cards {
-    display: grid;
-    gap: 24px;
-}
-
-.contact-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 24px;
-    background: white;
-    border-radius: var(--border-radius-large);
-    box-shadow: var(--shadow-small);
-    transition: var(--transition);
-}
-
-.contact-card:hover {
-    box-shadow: var(--shadow-medium);
-    transform: translateY(-2px);
-}
-
-.contact-icon {
+.process-number {
     width: 60px;
     height: 60px;
     background: var(--primary);
+    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    flex-shrink: 0;
-}
-
-.contact-info h3 {
-    margin-bottom: 8px;
-    color: var(--text-primary);
-}
-
-.contact-info p {
-    color: var(--text-secondary);
-    line-height: 1.5;
-}
-
-.contact-info a {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-}
-
-.contact-info small {
-    font-size: 0.875rem;
-    color: var(--text-light);
-}
-
-/* Contact Form */
-.contact-form-container {
-    background: white;
-    padding: 40px;
-    border-radius: var(--border-radius-large);
-    box-shadow: var(--shadow-small);
-}
-
-.contact-form-container h2 {
-    margin-bottom: 12px;
-    color: var(--text-primary);
-}
-
-.contact-form-container > p {
-    color: var(--text-secondary);
-    margin-bottom: 32px;
-    line-height: 1.6;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    margin-bottom: 6px;
-    font-weight: 500;
-    color: var(--text-primary);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 14px 16px;
-    border: 2px solid var(--border);
-    border-radius: var(--border-radius);
-    font-size: 16px;
-    font-family: inherit;
-    transition: var(--transition);
-    background: white;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-/* Checkbox */
-.checkbox-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    cursor: pointer;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: var(--text-secondary);
-}
-
-.checkbox-label input[type="checkbox"] {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--border);
-    border-radius: 4px;
-    background: white;
-    position: relative;
-    flex-shrink: 0;
-    margin-top: 2px;
-}
-
-.checkbox-label input[type="checkbox"]:checked {
-    background: var(--primary);
-    border-color: var(--primary);
-}
-
-.checkbox-label input[type="checkbox"]:checked::after {
-    content: '✓';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.checkbox-label a {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-.checkbox-label a:hover {
-    text-decoration: underline;
-}
-
-/* Map Section */
-.map-section {
-    padding: 60px 0;
-    background: var(--background-light);
-}
-
-.map-container {
-    margin: 40px 0;
-}
-
-.map-placeholder {
-    background: white;
-    border-radius: var(--border-radius-large);
-    padding: 60px 40px;
-    text-align: center;
-    box-shadow: var(--shadow-small);
-}
-
-.map-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
     margin: 0 auto 24px;
-    color: white;
 }
 
-.map-placeholder h3 {
-    margin-bottom: 8px;
-    color: var(--text-primary);
-}
-
-.map-placeholder p {
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-}
-
-/* Directions */
-.directions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 24px;
-    margin-top: 40px;
-}
-
-.direction-card {
-    background: white;
-    padding: 24px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-small);
-    text-align: center;
-}
-
-.direction-icon {
-    font-size: 2rem;
+.process-title {
+    font-size: 1.25rem;
+    font-weight: 600;
     margin-bottom: 16px;
-    display: block;
-}
-
-.direction-card h4 {
-    margin-bottom: 12px;
     color: var(--text-primary);
 }
 
-.direction-card p {
+.process-description {
     color: var(--text-secondary);
-    line-height: 1.5;
-    font-size: 0.875rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Navigation Updates */
+.nav-cart {
+    margin-left: 16px;
+}
+
+.cart-link {
+    font-size: 1.25rem;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: var(--border-radius-small);
+    transition: var(--transition);
+}
+
+.cart-link:hover {
+    background: var(--background-light);
 }
 
 /* Responsive Design */
@@ -1643,5 +1011,20 @@ h4 { font-size: 1.25rem; }
     
     .contact-icon {
         align-self: center;
+    }
+    
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .process-card {
+        padding: 24px 20px;
+    }
+    
+    .process-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
     }
 }

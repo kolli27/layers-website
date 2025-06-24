@@ -14,20 +14,23 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="nav-logo">
-                <img src="./layers logo-3.avif" alt="Layers Logo" class="logo-img">
+            <a href="index.html" class="nav-logo">
+                <img src="./layers-logo.avif" alt="Layers Logo" class="logo-img">
                 <span class="logo-text">layers</span>
             </a>
             
             <div class="nav-menu" id="nav-menu">
-                <a href="/" class="nav-link active">Home</a>
-                <a href="/gruppenevents" class="nav-link">Events</a>
-                <a href="/gutscheine" class="nav-link">Gutscheine</a>
-                <a href="https://layers.picflow.com/0pk0h9yygz" class="nav-link">Sortiment</a>
-                <a href="/keramik-home" class="nav-link">Keramik@Home</a>
-                <a href="/kontakt" class="nav-link">Kontakt</a>
-                <div class="nav-cta">
-                    <button class="btn-primary" onclick="openBooking()">Platz buchen</button>
+                <a href="index.html" class="nav-link active">home</a>
+                <a href="gruppenevents.html" class="nav-link">gruppenevent</a>
+                <a href="gutscheine.html" class="nav-link">gutscheine</a>
+                <a href="https://layers.picflow.com/0pk0h9yygz" class="nav-link">sortiment & preise</a>
+                <a href="#" class="nav-link">keramik@home</a>
+                <a href="#" class="nav-link">aktuelle abholzeiten</a>
+                <a href="#" class="nav-link">faq</a>
+                <a href="#" class="nav-link">über layers</a>
+                <a href="kontakt.html" class="nav-link">kontakt</a>
+                <div class="nav-cart">
+                    <a href="#" class="cart-link">🛒</a>
                 </div>
             </div>
             
@@ -41,89 +44,68 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">
-                        Kreativität <span class="highlight">trifft</span> Keramik
+                        Eure kreativen Ideen<br>
+                        <span class="highlight">zum Leben</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Entdecke deine kreative Seite in unserem modernen Keramikstudio in Köln. 
-                        Bemale Keramik, entspanne bei einem Kaffee und nimm einzigartige Kunstwerke mit nach Hause.
+                        Bei layers tauchst du in die kreative Welt des Keramikbemalens ein und schaffst 
+                        alltagstaugliche Unikate, die entspannte Atmosphäre in unserem Malstudio lädt dazu 
+                        ein, deiner Kreativität freien Lauf zu lassen - egal, ob du noch nie einen Pinsel in der Hand 
+                        hattest oder bereits Erfahrung hast. Lass dich inspirieren und gestalte Keramik, die so 
+                        individuell ist wie du.
                     </p>
                     <div class="hero-actions">
                         <button class="btn-primary large" onclick="openBooking()">
-                            <span>Jetzt Platz buchen</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
+                            Ich bin dabei!
                         </button>
-                        <a href="#was-ist-layers" class="btn-secondary large">Mehr erfahren</a>
+                        <button class="btn-secondary large" onclick="window.location.href='gutscheine.html'">
+                            Gutschein kaufen
+                        </button>
                     </div>
                 </div>
                 <div class="hero-image">
                     <div class="hero-card">
                         <img src="./gutschein.avif" alt="Keramik bemalen bei Layers" class="hero-img">
-                        <div class="hero-card-overlay">
-                            <div class="hero-stats">
-                                <div class="stat">
-                                    <span class="stat-number">500+</span>
-                                    <span class="stat-label">Glückliche Kunden</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-number">4.9★</span>
-                                    <span class="stat-label">Google Bewertung</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Was ist Layers -->
-    <section id="was-ist-layers" class="section-padding">
+    <!-- So funktioniert's -->
+    <section id="so-funktionierts" class="section-padding">
         <div class="container">
             <div class="section-header text-center">
-                <h2 class="section-title">Was ist Layers?</h2>
-                <p class="section-subtitle">Dein kreativer Rückzugsort im Herzen von Köln</p>
+                <h2 class="section-title">So funktioniert's</h2>
             </div>
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
-                            <path d="M9 12l2 2 4-4"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Hochwertige Materialien</h3>
-                    <p class="feature-description">Professionelle Keramik und ungiftige Farben für langlebige Kunstwerke</p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <h3 class="process-title">Platz reservieren</h3>
+                    <p class="process-description">Sichere dir online deinen Platz und plane deine kreative Zeit bei uns.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Persönliche Betreuung</h3>
-                    <p class="feature-description">Unser erfahrenes Team hilft dir bei jedem Schritt deines Kunstwerks</p>
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <h3 class="process-title">Ankommen & Einführung</h3>
+                    <p class="process-description">Lass dich von unserem Team begrüßen und in entspannter Atmosphäre</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9,22 9,12 15,12 15,22"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Gemütliche Atmosphäre</h3>
-                    <p class="feature-description">Entspannte Umgebung mit Kaffee, Tee und beruhigender Musik</p>
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <h3 class="process-title">Bemalen</h3>
+                    <p class="process-description">Gestalte dein Unikat in entspannter Atmosphäre und kreiere dein individuelles Handwerk.</p>
+                </div>
+                
+                <div class="process-card">
+                    <div class="process-number">4</div>
+                    <h3 class="process-title">Glasurbrand & Abholung</h3>
+                    <p class="process-description">In zweiwöchigem Turnus wird dein Werk gebrannt und du kannst es voller Stolz mitnehmen.</p>
                 </div>
             </div>
         </div>
