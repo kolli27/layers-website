@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gruppenevents - Layers Ceramics Studio Köln</title>
+    <meta name="description" content="Unvergessliche Gruppenevents bei Layers: Teambuilding, Geburtstage, JGA und Firmenfeiern. Kreatives Keramikbemalen in privater Atmosphäre.">
+    <link rel="stylesheet" href="modern-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="./layers logo-3.avif" alt="Layers Logo" class="logo-img">
+                <span class="logo-text">layers</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/gruppenevents" class="nav-link active">Events</a>
+                <a href="/gutscheine" class="nav-link">Gutscheine</a>
+                <a href="https://layers.picflow.com/0pk0h9yygz" class="nav-link">Sortiment</a>
+                <a href="/keramik-home" class="nav-link">Keramik@Home</a>
+                <a href="/kontakt" class="nav-link">Kontakt</a>
+                <div class="nav-cta">
+                    <button class="btn-primary" onclick="openBooking('group')">Event buchen</button>
+                </div>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 70vh;">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Unvergessliche <span class="highlight">Gruppenevents</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Ob Teambuilding, Geburtstag oder JGA – bei uns wird jede Feier zu einem kreativen Erlebnis. 
+                        Private Atmosphäre, persönliche Betreuung und jede Menge Spaß beim gemeinsamen Keramikbemalen.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-primary large" onclick="openBooking('group')">
+                            <span>Event jetzt buchen</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                        <a href="tel:+4922112345678" class="btn-secondary large">Beratung anrufen</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-card">
+                        <img src="./gutschein.avif" alt="Gruppenevent bei Layers" class="hero-img">
+                        <div class="hero-card-overlay">
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <span class="stat-number">150+</span>
+                                    <span class="stat-label">Events pro Jahr</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">4-30</span>
+                                    <span class="stat-label">Teilnehmer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Types -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Unsere Event-Formate</h2>
+                <p class="section-subtitle">Für jeden Anlass das perfekte Erlebnis</p>
+            </div>
+            
+            <div class="offers-grid">
+                <!-- Teambuilding -->
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <div class="offer-icon">🎯</div>
+                        <h3 class="offer-title">Teambuilding</h3>
+                        <p class="offer-price">ab 28€/Person</p>
+                    </div>
+                    <div class="offer-content">
+                        <p class="offer-description">Stärkt den Zusammenhalt eures Teams durch gemeinsame kreative Aktivitäten in entspannter Atmosphäre.</p>
+                        <ul class="offer-features">
+                            <li>8-20 Personen optimal</li>
+                            <li>2-3 Stunden Dauer</li>
+                            <li>Professionelle Anleitung</li>
+                            <li>Team-Challenges möglich</li>
+                            <li>Catering-Service verfügbar</li>
+                        </ul>
+                        <button class="btn-primary full-width" onclick="openBooking('team')">Teambuilding buchen</button>
+                    </div>
+                </div>
+
+                <!-- Geburtstag -->
+                <div class="offer-card featured">
+                    <div class="offer-badge">Beliebt</div>
+                    <div class="offer-header">
+                        <div class="offer-icon">🎂</div>
+                        <h3 class="offer-title">Geburtstagsfeiern</h3>
+                        <p class="offer-price">ab 25€/Person</p>
+                    </div>
+                    <div class="offer-content">
+                        <p class="offer-description">Feiere deinen besonderen Tag mit Freunden und Familie bei einer kreativen Keramik-Session.</p>
+                        <ul class="offer-features">
+                            <li>6-15 Personen ideal</li>
+                            <li>2-4 Stunden flexibel</li>
+                            <li>Individuelle Gestaltung</li>
+                            <li>Geburtstagsdeko möglich</li>
+                            <li>Kuchen mitbringen erlaubt</li>
+                        </ul>
+                        <button class="btn-primary full-width" onclick="openBooking('birthday')">Geburtstag feiern</button>
+                    </div>
+                </div>
+
+                <!-- JGA -->
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <div class="offer-icon">💍</div>
+                        <h3 class="offer-title">Junggesellenabschied</h3>
+                        <p class="offer-price">ab 32€/Person</p>
+                    </div>
+                    <div class="offer-content">
+                        <p class="offer-description">Ein unvergesslicher JGA der besonderen Art – kreativ, entspannt und voller schöner Erinnerungen.</p>
+                        <ul class="offer-features">
+                            <li>4-12 Personen</li>
+                            <li>2-3 Stunden Programm</li>
+                            <li>Sekt-Empfang inklusive</li>
+                            <li>Erinnerungsfotos</li>
+                            <li>Besondere Keramikstücke</li>
+                        </ul>
+                        <button class="btn-primary full-width" onclick="openBooking('jga')">JGA planen</button>
+                    </div>
+                </div>
+
+                <!-- Firmenfeier -->
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <div class="offer-icon">🏢</div>
+                        <h3 class="offer-title">Firmenfeiern</h3>
+                        <p class="offer-price">ab 30€/Person</p>
+                    </div>
+                    <div class="offer-content">
+                        <p class="offer-description">Entspannte Firmenfeiern mit kreativem Twist – perfekt für Weihnachtsfeiern oder Projektabschlüsse.</p>
+                        <ul class="offer-features">
+                            <li>10-30 Personen</li>
+                            <li>3-4 Stunden Programm</li>
+                            <li>Vollverpflegung möglich</li>
+                            <li>Flexible Termine</li>
+                            <li>Firmen-Branding möglich</li>
+                        </ul>
+                        <button class="btn-primary full-width" onclick="openBooking('company')">Firmenfeier anfragen</button>
+                    </div>
+                </div>
+
+                <!-- Familienfeier -->
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <div class="offer-icon">👨‍👩‍👧‍👦</div>
+                        <h3 class="offer-title">Familien-Events</h3>
+                        <p class="offer-price">ab 22€/Person</p>
+                    </div>
+                    <div class="offer-content">
+                        <p class="offer-description">Kreative Familienzeit für Groß und Klein – gemeinsam Keramik bemalen und Erinnerungen schaffen.</p>
+                        <ul class="offer-features">
+                            <li>4-20 Personen</li>
+                            <li>1-3 Stunden flexibel</li>
+                            <li>Kinderfreundlich (ab 4 Jahre)</li>
+                            <li>Familienrabatte</li>
+                            <li>Verschiedene Schwierigkeitsgrade</li>
+                        </ul>
+                        <button class="btn-primary full-width" onclick="openBooking('family')">Familienfeier buchen</button>
+                    </div>
+                </div>
+
+                <!-- Schulklassen -->
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <div class="offer-icon">🎓</div>
+                        <h3 class="offer-title">Schulklassen & Kitas</h3>
+                        <p class="offer-price">ab 18€/Kind</p>
+                    </div>
+                    <div class="offer-content">
+                        <p class="offer-description">Pädagogisch wertvolle Kreativ-Workshops für Schulklassen und Kindergartengruppen.</p>
+                        <ul class="offer-features">
+                            <li>15-25 Kinder</li>
+                            <li>2 Stunden pädagogisch betreut</li>
+                            <li>Altersgerechte Anleitung</li>
+                            <li>Spezielle Gruppenpreise</li>
+                            <li>Bildungsauftrag erfüllt</li>
+                        </ul>
+                        <button class="btn-primary full-width" onclick="openBooking('school')">Schulausflug anfragen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">So läuft euer Event ab</h2>
+                <p class="section-subtitle">Von der Buchung bis zum fertigen Kunstwerk</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <h4>Buchung & Planung</h4>
+                        <p>Kontaktiert uns mit euren Wünschen. Wir planen gemeinsam den perfekten Ablauf für euer Event.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <h4>Begrüßung & Einführung</h4>
+                        <p>Am Event-Tag begrüßen wir euch herzlich und geben eine kurze Einführung in die Keramikmalerei.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <h4>Kreatives Schaffen</h4>
+                        <p>Jeder wählt sein Lieblingsstück aus und beginnt mit der kreativen Gestaltung. Wir helfen gerne dabei!</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <h4>Brennen & Abholen</h4>
+                        <p>Nach einer Woche sind eure Kunstwerke fertig gebrannt und können abgeholt werden.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Warum Layers für euer Event?</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎨</div>
+                    <h4>Professionelle Betreuung</h4>
+                    <p>Unser erfahrenes Team sorgt für einen reibungslosen Ablauf und steht euch jederzeit mit Rat und Tat zur Seite.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏺</div>
+                    <h4>Hochwertige Materialien</h4>
+                    <p>Beste Keramik, professionelle Farben und alle Werkzeuge für langlebige und wunderschöne Kunstwerke.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">☕</div>
+                    <h4>Gemütliche Atmosphäre</h4>
+                    <p>Entspannte Umgebung mit bequemen Plätzen, Getränken und einer Playlist, die für gute Stimmung sorgt.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">📅</div>
+                    <h4>Flexible Termine</h4>
+                    <p>Auch abends und am Wochenende verfügbar. Wir finden gemeinsam den perfekten Termin für euer Event.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🍰</div>
+                    <h4>Catering-Service</h4>
+                    <p>Von Kaffee und Kuchen bis zum vollständigen Menü – wir organisieren gerne die passende Verpflegung.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">📸</div>
+                    <h4>Erinnerungsfotos</h4>
+                    <p>Wir halten die schönsten Momente eures Events fest und stellen euch die Fotos gerne zur Verfügung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Das sagen unsere Event-Kunden</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Unser Teamevent war ein voller Erfolg! Die Atmosphäre war perfekt und das Team von Layers super professionell. Können wir nur weiterempfehlen!"</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah, Marketing-Team XING</strong>
+                        <span>Teambuilding Event</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Mein JGA bei Layers war unvergesslich! Kreativ, entspannt und mit so viel Liebe zum Detail organisiert. Die Mädels reden heute noch davon!"</p>
+                    <div class="testimonial-author">
+                        <strong>Lisa M.</strong>
+                        <span>Junggesellenabschied</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Der 30. Geburtstag meiner Frau wurde zu einem absoluten Highlight! Alle Gäste waren begeistert und wir haben wunderschöne Erinnerungen geschaffen."</p>
+                    <div class="testimonial-author">
+                        <strong>Michael K.</strong>
+                        <span>Geburtstagsfeier</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Häufige Fragen zu Events</h2>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4 class="faq-question">Wie weit im Voraus sollte ich buchen?</h4>
+                    <p class="faq-answer">Für Wochenendtermine empfehlen wir 2-3 Wochen Vorlauf. Unter der Woche ist oft auch kurzfristiger möglich.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Können wir eigenes Essen mitbringen?</h4>
+                    <p class="faq-answer">Ja! Ihr könnt gerne Kuchen, Snacks und Getränke mitbringen. Wir bieten auch Catering-Services an.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Wie lange dauert ein typisches Event?</h4>
+                    <p class="faq-answer">Die meisten Events dauern 2-3 Stunden. Je nach Gruppe und Wunsch können wir das individuell anpassen.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Was ist, wenn jemand keine Vorerfahrung hat?</h4>
+                    <p class="faq-answer">Perfekt! Unsere Events sind für alle Erfahrungsstufen geeignet. Wir geben gerne Anleitung und Tipps.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Können wir das Studio exklusiv nutzen?</h4>
+                    <p class="faq-answer">Ja! Ab 8 Personen könnt ihr das Studio exklusiv für euer Event buchen.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Wie funktioniert die Bezahlung?</h4>
+                    <p class="faq-answer">Wir senden euch eine Rechnung mit verschiedenen Zahlungsoptionen. Eine Anzahlung sichert euren Termin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Bereit für euer unvergessliches Event?</h2>
+                <p class="cta-subtitle">Kontaktiert uns für ein individuelles Angebot. Wir beraten euch gerne und planen gemeinsam euer perfektes Gruppenerlebnis.</p>
+                <div class="cta-actions">
+                    <button class="btn-primary large" onclick="openBooking('group')">Event jetzt buchen</button>
+                    <a href="tel:+4922112345678" class="btn-secondary large">Persönliche Beratung</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="./layers logo-3.avif" alt="Layers Logo" class="footer-logo-img">
+                        <span>layers</span>
+                    </div>
+                    <p class="footer-description">Dein kreativer Rückzugsort im Herzen von Köln. Entspanne beim Keramikbemalen und erschaffe einzigartige Kunstwerke.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Events</h4>
+                    <ul class="footer-links">
+                        <li><a href="#teambuilding">Teambuilding</a></li>
+                        <li><a href="#geburtstag">Geburtstage</a></li>
+                        <li><a href="#jga">Junggesellenabschied</a></li>
+                        <li><a href="#firmenfeier">Firmenfeiern</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="/keramik-home">Keramik@Home</a></li>
+                        <li><a href="/abholzeiten">Abholzeiten</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/kontakt">Kontakt</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <div class="footer-contact">
+                        <p>📍 Musterstraße 123, 50667 Köln</p>
+                        <p>📞 <a href="tel:+4922112345678">0221 123 456 78</a></p>
+                        <p>✉️ <a href="mailto:events@layers-koeln.de">events@layers-koeln.de</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Layers Ceramics Studio. Alle Rechte vorbehalten.</p>
+                <div class="footer-legal">
+                    <a href="/impressum">Impressum</a>
+                    <a href="/datenschutz">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Booking Button -->
+    <div class="floating-booking" id="floating-booking">
+        <button class="floating-btn" onclick="openBooking('group')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <span>Event buchen</span>
+        </button>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal" id="booking-modal">
+        <div class="booking-modal-content">
+            <div class="booking-modal-header">
+                <h3>Event buchen</h3>
+                <button class="booking-modal-close" onclick="closeBooking()">&times;</button>
+            </div>
+            <div class="booking-modal-body">
+                <div class="booking-step active" id="step-1">
+                    <h4>Welches Event möchtet ihr feiern?</h4>
+                    <div class="booking-options">
+                        <button class="booking-option" onclick="selectBookingType('team')">
+                            <div class="booking-option-icon">🎯</div>
+                            <div class="booking-option-content">
+                                <h5>Teambuilding</h5>
+                                <p>Für Unternehmen und Teams</p>
+                            </div>
+                        </button>
+                        <button class="booking-option" onclick="selectBookingType('birthday')">
+                            <div class="booking-option-icon">🎂</div>
+                            <div class="booking-option-content">
+                                <h5>Geburtstag</h5>
+                                <p>Private Geburtstagsfeier</p>
+                            </div>
+                        </button>
+                        <button class="booking-option" onclick="selectBookingType('jga')">
+                            <div class="booking-option-icon">💍</div>
+                            <div class="booking-option-content">
+                                <h5>JGA</h5>
+                                <p>Junggesellenabschied</p>
+                            </div>
+                        </button>
+                        <button class="booking-option" onclick="selectBookingType('other')">
+                            <div class="booking-option-icon">🎉</div>
+                            <div class="booking-option-content">
+                                <h5>Sonstiges</h5>
+                                <p>Andere Anlässe</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="modern-script-integrated.js"></script>
+</body>
+</html>

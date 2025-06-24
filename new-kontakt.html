@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Layers Ceramics Studio Köln</title>
+    <meta name="description" content="Kontaktiere Layers Ceramics Studio in Köln. Adresse, Öffnungszeiten, Telefon, E-Mail und Anfahrt. Wir freuen uns auf deinen Besuch!">
+    <link rel="stylesheet" href="modern-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="./layers logo-3.avif" alt="Layers Logo" class="logo-img">
+                <span class="logo-text">layers</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/gruppenevents" class="nav-link">Events</a>
+                <a href="/gutscheine" class="nav-link">Gutscheine</a>
+                <a href="https://layers.picflow.com/0pk0h9yygz" class="nav-link">Sortiment</a>
+                <a href="/keramik-home" class="nav-link">Keramik@Home</a>
+                <a href="/kontakt" class="nav-link active">Kontakt</a>
+                <div class="nav-cta">
+                    <button class="btn-primary" onclick="openBooking()">Platz buchen</button>
+                </div>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Wir freuen uns auf <span class="highlight">dich</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Hast du Fragen zu unseren Angeboten oder möchtest einen Termin vereinbaren? 
+                        Kontaktiere uns – wir helfen gerne weiter!
+                    </p>
+                    <div class="hero-actions">
+                        <a href="tel:+4922112345678" class="btn-primary large">
+                            <span>Anrufen</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:info@layers-koeln.de" class="btn-secondary large">E-Mail schreiben</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Cards -->
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Adresse</h3>
+                            <p>Musterstraße 123<br>50667 Köln</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Telefon</h3>
+                            <p>
+                                <a href="tel:+4922112345678">0221 123 456 78</a><br>
+                                <small>Mo-Fr: 10-18 Uhr</small>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h3>E-Mail</h3>
+                            <p>
+                                <a href="mailto:info@layers-koeln.de">info@layers-koeln.de</a><br>
+                                <small>Wir antworten innerhalb von 24h</small>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Öffnungszeiten</h3>
+                            <p>
+                                Di-Fr: 10:00-19:00<br>
+                                Sa-So: 11:00-18:00<br>
+                                Mo: Geschlossen
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Schreib uns eine Nachricht</h2>
+                    <p>Hast du Fragen oder möchtest einen Termin vereinbaren? Fülle einfach das Formular aus und wir melden uns schnellstmöglich bei dir.</p>
+                    
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-Mail *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefon (optional)</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Betreff</label>
+                            <select id="subject" name="subject">
+                                <option value="">Bitte wählen</option>
+                                <option value="booking">Platz buchen</option>
+                                <option value="group-event">Gruppenevent</option>
+                                <option value="voucher">Gutschein</option>
+                                <option value="keramik-home">Keramik@Home</option>
+                                <option value="question">Allgemeine Frage</option>
+                                <option value="other">Sonstiges</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Nachricht *</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Erzähl uns, wie wir dir helfen können..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="privacy" required>
+                                <span class="checkbox-checkmark"></span>
+                                Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary large full-width">Nachricht senden</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">So findest du uns</h2>
+                <p class="section-subtitle">Mitten in Köln, gut erreichbar mit öffentlichen Verkehrsmitteln</p>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div class="map-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Layers Ceramics Studio</h3>
+                    <p>Musterstraße 123, 50667 Köln</p>
+                    <a href="https://www.google.com/maps/search/Musterstraße+123+50667+Köln" target="_blank" class="btn-primary">Route in Google Maps</a>
+                </div>
+            </div>
+            
+            <div class="directions-grid">
+                <div class="direction-card">
+                    <div class="direction-icon">🚇</div>
+                    <h4>Öffentliche Verkehrsmittel</h4>
+                    <p>U-Bahn: Haltestelle Dom/Hbf (U1, U2)<br>
+                    S-Bahn: Köln Hauptbahnhof<br>
+                    Bus: Linien 132, 133 (Haltestelle Musterplatz)</p>
+                </div>
+                
+                <div class="direction-card">
+                    <div class="direction-icon">🚗</div>
+                    <h4>Mit dem Auto</h4>
+                    <p>A1/A3/A4 Richtung Köln Zentrum<br>
+                    Parken: Parkhaus Domkloster (5 Min. Fußweg)<br>
+                    Parkmöglichkeiten in der Nähe vorhanden</p>
+                </div>
+                
+                <div class="direction-card">
+                    <div class="direction-icon">🚲</div>
+                    <h4>Mit dem Fahrrad</h4>
+                    <p>Fahrradständer direkt vor dem Studio<br>
+                    Gut erreichbar über die Fahrradwege<br>
+                    Nextbike-Station in 100m Entfernung</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Häufige Fragen</h2>
+                <p class="section-subtitle">Hier findest du Antworten auf die wichtigsten Fragen</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4 class="faq-question">Muss ich vorab einen Termin buchen?</h4>
+                    <p class="faq-answer">Für das offene Atelier ist keine Voranmeldung nötig. Wir empfehlen jedoch eine Reservierung, besonders am Wochenende. Für Gruppen ab 4 Personen ist eine Buchung erforderlich.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Wie lange dauert der Brennvorgang?</h4>
+                    <p class="faq-answer">Deine Keramik ist nach etwa einer Woche fertig gebrannt und kann abgeholt werden. Wir informieren dich per E-Mail oder SMS, sobald sie bereit ist.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Können Kinder bei euch malen?</h4>
+                    <p class="faq-answer">Ja! Kinder ab 4 Jahren sind herzlich willkommen. Wir haben spezielle kinderfreundliche Farben und Werkzeuge. Kinder unter 12 Jahren sollten von einem Erwachsenen begleitet werden.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Was kostet das Keramikbemalen?</h4>
+                    <p class="faq-answer">Die Preise variieren je nach Keramikstück (ab 8€) plus Studiogebühr (7€ pro Person). Alle Farben, Pinsel und der Brennvorgang sind inklusive. Aktuelle Preise findest du in unserem Sortiment.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Gibt es Parkplätze?</h4>
+                    <p class="faq-answer">Direkt vor dem Studio gibt es begrenzte Parkmöglichkeiten. Das Parkhaus Domkloster ist nur 5 Gehminuten entfernt und bietet ausreichend Plätze.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Kann ich Essen und Trinken mitbringen?</h4>
+                    <p class="faq-answer">Getränke bieten wir im Studio an. Eigenes Essen darfst du gerne mitbringen, besonders bei längeren Aufenthalten oder Kindergeburtstagen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Bereit für dein kreatives Abenteuer?</h2>
+                <p class="cta-subtitle">Komm vorbei und entdecke die entspannende Welt des Keramikbemalens. Wir freuen uns auf dich!</p>
+                <div class="cta-actions">
+                    <button class="btn-primary large" onclick="openBooking()">Platz buchen</button>
+                    <a href="tel:+4922112345678" class="btn-secondary large">Anrufen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="./layers logo-3.avif" alt="Layers Logo" class="footer-logo-img">
+                        <span>layers</span>
+                    </div>
+                    <p class="footer-description">Dein kreativer Rückzugsort im Herzen von Köln. Entspanne beim Keramikbemalen und erschaffe einzigartige Kunstwerke.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+4922112345678">0221 123 456 78</a></li>
+                        <li><a href="mailto:info@layers-koeln.de">info@layers-koeln.de</a></li>
+                        <li>Musterstraße 123, 50667 Köln</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Öffnungszeiten</h4>
+                    <ul class="footer-links">
+                        <li>Di-Fr: 10:00-19:00</li>
+                        <li>Sa-So: 11:00-18:00</li>
+                        <li>Mo: Geschlossen</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/gutscheine">Gutscheine</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/impressum">Impressum</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Layers Ceramics Studio. Alle Rechte vorbehalten.</p>
+                <div class="footer-legal">
+                    <a href="/impressum">Impressum</a>
+                    <a href="/datenschutz">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Booking Button -->
+    <div class="floating-booking" id="floating-booking">
+        <button class="floating-btn" onclick="openBooking()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <span>Buchen</span>
+        </button>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal" id="booking-modal">
+        <div class="booking-modal-content">
+            <div class="booking-modal-header">
+                <h3>Platz buchen</h3>
+                <button class="booking-modal-close" onclick="closeBooking()">&times;</button>
+            </div>
+            <div class="booking-modal-body">
+                <div class="booking-step active" id="step-1">
+                    <h4>Was möchtest du buchen?</h4>
+                    <div class="booking-options">
+                        <button class="booking-option" onclick="selectBookingType('walk-in')">
+                            <div class="booking-option-icon">🎨</div>
+                            <div class="booking-option-content">
+                                <h5>Offenes Atelier</h5>
+                                <p>Spontan vorbeikommen und bemalen</p>
+                            </div>
+                        </button>
+                        <button class="booking-option" onclick="selectBookingType('group')">
+                            <div class="booking-option-icon">👥</div>
+                            <div class="booking-option-content">
+                                <h5>Gruppenevent</h5>
+                                <p>Private Feier oder Teamevent</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="modern-script-integrated.js"></script>
+    <script>
+        // Initialize contact form
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeContactForm();
+        });
+    </script>
+</body>
+</html>

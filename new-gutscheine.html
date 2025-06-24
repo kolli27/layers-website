@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gutscheine - Layers Ceramics Studio Köln</title>
+    <meta name="description" content="Verschenke kreative Momente! Gutscheine für Keramikbemalen bei Layers Köln. Online kaufen, per E-Mail versenden oder vor Ort abholen.">
+    <link rel="stylesheet" href="modern-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="./layers logo-3.avif" alt="Layers Logo" class="logo-img">
+                <span class="logo-text">layers</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/gruppenevents" class="nav-link">Events</a>
+                <a href="/gutscheine" class="nav-link active">Gutscheine</a>
+                <a href="https://layers.picflow.com/0pk0h9yygz" class="nav-link">Sortiment</a>
+                <a href="/keramik-home" class="nav-link">Keramik@Home</a>
+                <a href="/kontakt" class="nav-link">Kontakt</a>
+                <div class="nav-cta">
+                    <button class="btn-primary" onclick="scrollToVouchers()">Gutschein kaufen</button>
+                </div>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 70vh;">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Verschenke <span class="highlight">kreative Momente</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Überrasche deine Liebsten mit einem Gutschein für unser Keramikstudio. 
+                        Das perfekte Geschenk für alle, die gerne kreativ sind oder es werden möchten.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-primary large" onclick="scrollToVouchers()">
+                            <span>Gutschein kaufen</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                        <a href="#warum-gutschein" class="btn-secondary large">Warum Gutschein?</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-card">
+                        <img src="./gutschein.avif" alt="Layers Gutschein" class="hero-img">
+                        <div class="hero-card-overlay">
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <span class="stat-number">3 Jahre</span>
+                                    <span class="stat-label">Gültig</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">Digital</span>
+                                    <span class="stat-label">oder gedruckt</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Gift Voucher -->
+    <section id="warum-gutschein" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Warum ein Layers Gutschein?</h2>
+                <p class="section-subtitle">Das Geschenk, das Freude bereitet und Erinnerungen schafft</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎁</div>
+                    <h4>Perfekt für jeden Anlass</h4>
+                    <p>Geburtstag, Weihnachten, Valentinstag oder einfach nur so – unser Gutschein passt immer.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">⏰</div>
+                    <h4>Flexible Nutzung</h4>
+                    <p>3 Jahre gültig und flexibel einlösbar. Keine Eile, keine Termine unter Zeitdruck.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎨</div>
+                    <h4>Für alle Erfahrungsstufen</h4>
+                    <p>Ob Anfänger oder Profi – bei uns fühlt sich jeder wohl und erschafft wunderschöne Kunstwerke.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">📱</div>
+                    <h4>Sofort verfügbar</h4>
+                    <p>Digital per E-Mail oder schön gedruckt zum Selbstabholen – du entscheidest.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">💝</div>
+                    <h4>Einzigartige Erfahrung</h4>
+                    <p>Verschenke keine Dinge, sondern unvergessliche Momente und bleibende Erinnerungen.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌟</div>
+                    <h4>Hochwertige Qualität</h4>
+                    <p>Professionelle Materialien und Brennvorgang für Kunstwerke, die ein Leben lang halten.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voucher Options -->
+    <section id="gutscheine" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Unsere Gutscheine</h2>
+                <p class="section-subtitle">Wähle den passenden Gutschein für deine Liebsten</p>
+            </div>
+            
+            <div class="voucher-grid">
+                <!-- Wert-Gutscheine -->
+                <div class="voucher-category">
+                    <h3 class="voucher-category-title">Wert-Gutscheine</h3>
+                    <p class="voucher-category-description">Flexible Gutscheine mit Geldwert – der Beschenkte kann frei wählen</p>
+                    
+                    <div class="voucher-options">
+                        <div class="voucher-card">
+                            <div class="voucher-badge">Beliebt</div>
+                            <div class="voucher-amount">25€</div>
+                            <h4 class="voucher-title">Starter-Gutschein</h4>
+                            <p class="voucher-description">Perfekt für den ersten Besuch. Reicht für ein kleines Keramikstück plus Farben.</p>
+                            <ul class="voucher-features">
+                                <li>Kleine Tasse oder Schale</li>
+                                <li>Alle Farben inklusive</li>
+                                <li>Professioneller Brand</li>
+                            </ul>
+                            <button class="btn-primary full-width" onclick="selectVoucher('25')">25€ Gutschein kaufen</button>
+                        </div>
+                        
+                        <div class="voucher-card featured">
+                            <div class="voucher-badge">Empfehlung</div>
+                            <div class="voucher-amount">50€</div>
+                            <h4 class="voucher-title">Standard-Gutschein</h4>
+                            <p class="voucher-description">Ideal für ein komplettes Erlebnis. Genug für größere Stücke und Getränke.</p>
+                            <ul class="voucher-features">
+                                <li>Große Auswahl an Keramik</li>
+                                <li>Getränke inklusive</li>
+                                <li>Entspanntes Arbeiten</li>
+                            </ul>
+                            <button class="btn-primary full-width" onclick="selectVoucher('50')">50€ Gutschein kaufen</button>
+                        </div>
+                        
+                        <div class="voucher-card">
+                            <div class="voucher-amount">75€</div>
+                            <h4 class="voucher-title">Premium-Gutschein</h4>
+                            <p class="voucher-description">Für besondere Anlässe. Ermöglicht mehrere Stücke oder ein luxuriöses Einzelstück.</p>
+                            <ul class="voucher-features">
+                                <li>Premium-Keramikstücke</li>
+                                <li>Mehrere Objekte möglich</li>
+                                <li>Komplette Verwöhnung</li>
+                            </ul>
+                            <button class="btn-primary full-width" onclick="selectVoucher('75')">75€ Gutschein kaufen</button>
+                        </div>
+                        
+                        <div class="voucher-card">
+                            <div class="voucher-amount">100€</div>
+                            <h4 class="voucher-title">Luxus-Gutschein</h4>
+                            <p class="voucher-description">Das ultimative Geschenk für Keramik-Liebhaber. Für mehrere Besuche oder Gruppenerlebnisse.</p>
+                            <ul class="voucher-features">
+                                <li>Unbegrenzte Auswahl</li>
+                                <li>Mehrere Besuche möglich</li>
+                                <li>Auch für kleine Gruppen</li>
+                            </ul>
+                            <button class="btn-primary full-width" onclick="selectVoucher('100')">100€ Gutschein kaufen</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Erlebnis-Gutscheine -->
+                <div class="voucher-category">
+                    <h3 class="voucher-category-title">Erlebnis-Gutscheine</h3>
+                    <p class="voucher-category-description">Fertige Pakete für bestimmte Erlebnisse</p>
+                    
+                    <div class="voucher-options">
+                        <div class="voucher-card">
+                            <div class="voucher-amount">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                </svg>
+                            </div>
+                            <h4 class="voucher-title">Date-Night</h4>
+                            <p class="voucher-description">Romantischer Abend für zwei. Perfekt für Paare, die gemeinsam kreativ werden möchten.</p>
+                            <ul class="voucher-features">
+                                <li>2 Personen</li>
+                                <li>Sekt-Empfang</li>
+                                <li>2 Keramikstücke</li>
+                                <li>Romantische Atmosphäre</li>
+                            </ul>
+                            <div class="voucher-price">65€</div>
+                            <button class="btn-primary full-width" onclick="selectVoucher('date-night')">Date-Night buchen</button>
+                        </div>
+                        
+                        <div class="voucher-card">
+                            <div class="voucher-amount">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <h4 class="voucher-title">Freundinnen-Tag</h4>
+                            <p class="voucher-description">Unvergesslicher Tag mit der besten Freundin. Inklusive Prosecco und Snacks.</p>
+                            <ul class="voucher-features">
+                                <li>2 Personen</li>
+                                <li>Prosecco & Snacks</li>
+                                <li>3 Stunden Zeit</li>
+                                <li>Erinnerungsfotos</li>
+                            </ul>
+                            <div class="voucher-price">85€</div>
+                            <button class="btn-primary full-width" onclick="selectVoucher('friends-day')">Freundinnen-Tag buchen</button>
+                        </div>
+                        
+                        <div class="voucher-card">
+                            <div class="voucher-amount">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                    <polyline points="9,22 9,12 15,12 15,22"/>
+                                </svg>
+                            </div>
+                            <h4 class="voucher-title">Familien-Erlebnis</h4>
+                            <p class="voucher-description">Kreative Familienzeit für 2 Erwachsene und 2 Kinder. Alle Materialien inklusive.</p>
+                            <ul class="voucher-features">
+                                <li>2 Erwachsene + 2 Kinder</li>
+                                <li>Kinderfreundlich</li>
+                                <li>4 Keramikstücke</li>
+                                <li>Getränke für alle</li>
+                            </ul>
+                            <div class="voucher-price">120€</div>
+                            <button class="btn-primary full-width" onclick="selectVoucher('family')">Familien-Erlebnis buchen</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Individuelle Gutscheine -->
+                <div class="voucher-category">
+                    <h3 class="voucher-category-title">Individueller Gutschein</h3>
+                    <p class="voucher-category-description">Wunschbetrag oder spezielle Anfrage</p>
+                    
+                    <div class="custom-voucher">
+                        <div class="custom-voucher-card">
+                            <h4>Wunschbetrag</h4>
+                            <p>Du möchtest einen anderen Betrag verschenken? Kein Problem!</p>
+                            <div class="custom-amount-input">
+                                <input type="number" id="custom-amount" placeholder="Betrag eingeben" min="15" max="500">
+                                <span>€</span>
+                            </div>
+                            <button class="btn-primary full-width" onclick="selectCustomVoucher()">Individuellen Gutschein erstellen</button>
+                        </div>
+                        
+                        <div class="custom-voucher-card">
+                            <h4>Spezielle Anfrage</h4>
+                            <p>Du hast eine besondere Idee? Kontaktiere uns für individuelle Lösungen!</p>
+                            <a href="/kontakt" class="btn-secondary full-width">Kontakt aufnehmen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">So funktioniert's</h2>
+                <p class="section-subtitle">Von der Bestellung bis zur Einlösung</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <h4>Gutschein auswählen</h4>
+                        <p>Wähle den passenden Gutschein aus unserer Auswahl oder erstelle einen individuellen Betrag.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <h4>Personalisieren & bestellen</h4>
+                        <p>Füge eine persönliche Nachricht hinzu und wähle zwischen digitaler oder gedruckter Version.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <h4>Bezahlen & erhalten</h4>
+                        <p>Sichere Bezahlung per PayPal oder Überweisung. Digitale Gutscheine kommen sofort per E-Mail.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <h4>Verschenken & einlösen</h4>
+                        <p>Der Beschenkte kann den Gutschein flexibel bei uns einlösen – 3 Jahre lang gültig.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Häufige Fragen zu Gutscheinen</h2>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4 class="faq-question">Wie lange sind die Gutscheine gültig?</h4>
+                    <p class="faq-answer">Alle unsere Gutscheine sind 3 Jahre ab Kaufdatum gültig. Das gibt genug Zeit für die perfekte Gelegenheit.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Kann ich den Gutschein personalisieren?</h4>
+                    <p class="faq-answer">Ja! Du kannst eine persönliche Nachricht hinzufügen und zwischen verschiedenen Designs wählen.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Digitaler oder gedruckter Gutschein?</h4>
+                    <p class="faq-answer">Du hast die Wahl: Sofortiger Versand per E-Mail oder schön gedruckt zum Abholen in unserem Studio.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Kann ich den Gutschein zurückgeben?</h4>
+                    <p class="faq-answer">Digitale Gutscheine können nicht zurückgegeben werden. Bei besonderen Umständen finden wir aber gerne eine Lösung.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Muss ich bei der Einlösung einen Termin buchen?</h4>
+                    <p class="faq-answer">Für das offene Atelier nicht, aber wir empfehlen eine Voranmeldung. Für Gruppen ist eine Buchung erforderlich.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4 class="faq-question">Was passiert mit dem Restguthaben?</h4>
+                    <p class="faq-answer">Restguthaben bleibt auf dem Gutschein erhalten und kann beim nächsten Besuch verwendet werden.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Bereit, Freude zu verschenken?</h2>
+                <p class="cta-subtitle">Wähle jetzt den perfekten Gutschein und überrasche deine Liebsten mit einem unvergesslichen kreativen Erlebnis.</p>
+                <div class="cta-actions">
+                    <button class="btn-primary large" onclick="scrollToVouchers()">Gutschein auswählen</button>
+                    <a href="tel:+4922112345678" class="btn-secondary large">Beratung anrufen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="./layers logo-3.avif" alt="Layers Logo" class="footer-logo-img">
+                        <span>layers</span>
+                    </div>
+                    <p class="footer-description">Dein kreativer Rückzugsort im Herzen von Köln. Entspanne beim Keramikbemalen und erschaffe einzigartige Kunstwerke.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Gutscheine</h4>
+                    <ul class="footer-links">
+                        <li><a href="#wert-gutscheine">Wert-Gutscheine</a></li>
+                        <li><a href="#erlebnis-gutscheine">Erlebnis-Gutscheine</a></li>
+                        <li><a href="#individuell">Individuell</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/gruppenevents">Events</a></li>
+                        <li><a href="/kontakt">Kontakt</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <div class="footer-contact">
+                        <p>📍 Musterstraße 123, 50667 Köln</p>
+                        <p>📞 <a href="tel:+4922112345678">0221 123 456 78</a></p>
+                        <p>✉️ <a href="mailto:gutscheine@layers-koeln.de">gutscheine@layers-koeln.de</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Layers Ceramics Studio. Alle Rechte vorbehalten.</p>
+                <div class="footer-legal">
+                    <a href="/impressum">Impressum</a>
+                    <a href="/datenschutz">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Booking Button -->
+    <div class="floating-booking" id="floating-booking">
+        <button class="floating-btn" onclick="scrollToVouchers()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+            <span>Gutschein</span>
+        </button>
+    </div>
+
+    <!-- Voucher Purchase Modal -->
+    <div class="booking-modal" id="voucher-modal">
+        <div class="booking-modal-content">
+            <div class="booking-modal-header">
+                <h3>Gutschein kaufen</h3>
+                <button class="booking-modal-close" onclick="closeVoucherModal()">&times;</button>
+            </div>
+            <div class="booking-modal-body" id="voucher-modal-body">
+                <!-- Content will be dynamically added -->
+            </div>
+        </div>
+    </div>
+
+    <script src="modern-script-integrated.js"></script>
+    <script>
+        // Voucher-specific functions
+        function scrollToVouchers() {
+            document.getElementById('gutscheine').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function selectVoucher(type) {
+            showVoucherPurchase(type);
+        }
+        
+        function selectCustomVoucher() {
+            const amount = document.getElementById('custom-amount').value;
+            if (amount && amount >= 15) {
+                showVoucherPurchase('custom', amount);
+            } else {
+                alert('Bitte gib einen Betrag von mindestens 15€ ein.');
+            }
+        }
+        
+        function showVoucherPurchase(type, customAmount = null) {
+            const modal = document.getElementById('voucher-modal');
+            const modalBody = document.getElementById('voucher-modal-body');
+            
+            let voucherInfo = getVoucherInfo(type, customAmount);
+            
+            modalBody.innerHTML = `
+                <div class="voucher-purchase-form">
+                    <div class="voucher-summary">
+                        <h4>${voucherInfo.title}</h4>
+                        <div class="voucher-amount-display">${voucherInfo.amount}</div>
+                        <p>${voucherInfo.description}</p>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h5>Personalisierung</h5>
+                        <div class="form-group">
+                            <label>Empfänger Name</label>
+                            <input type="text" id="recipient-name" placeholder="Für wen ist der Gutschein?">
+                        </div>
+                        <div class="form-group">
+                            <label>Persönliche Nachricht (optional)</label>
+                            <textarea id="personal-message" placeholder="Eine persönliche Nachricht für den Beschenkten..." rows="3"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h5>Lieferart</h5>
+                        <div class="delivery-options">
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery" value="email" checked>
+                                <div class="delivery-option-content">
+                                    <h6>📧 Per E-Mail (sofort)</h6>
+                                    <p>Digitaler Gutschein zum Ausdrucken</p>
+                                </div>
+                            </label>
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery" value="pickup">
+                                <div class="delivery-option-content">
+                                    <h6>🏪 Abholung im Studio</h6>
+                                    <p>Schön gedruckt auf hochwertigem Papier</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h5>Kontaktdaten</h5>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Dein Name *</label>
+                                <input type="text" id="buyer-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>E-Mail *</label>
+                                <input type="email" id="buyer-email" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="purchase-summary">
+                        <div class="summary-line">
+                            <span>Gutscheinwert:</span>
+                            <span>${voucherInfo.amount}</span>
+                        </div>
+                        <div class="summary-line total">
+                            <span><strong>Gesamt:</strong></span>
+                            <span><strong>${voucherInfo.amount}</strong></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button onclick="closeVoucherModal()" class="btn-secondary">Abbrechen</button>
+                        <button onclick="proceedToPayment()" class="btn-primary">Zur Bezahlung</button>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function getVoucherInfo(type, customAmount) {
+            const voucherTypes = {
+                '25': { title: 'Starter-Gutschein', amount: '25€', description: 'Perfekt für den ersten Besuch' },
+                '50': { title: 'Standard-Gutschein', amount: '50€', description: 'Ideal für ein komplettes Erlebnis' },
+                '75': { title: 'Premium-Gutschein', amount: '75€', description: 'Für besondere Anlässe' },
+                '100': { title: 'Luxus-Gutschein', amount: '100€', description: 'Das ultimative Geschenk' },
+                'date-night': { title: 'Date-Night Erlebnis', amount: '65€', description: 'Romantischer Abend für zwei' },
+                'friends-day': { title: 'Freundinnen-Tag', amount: '85€', description: 'Unvergesslicher Tag mit der besten Freundin' },
+                'family': { title: 'Familien-Erlebnis', amount: '120€', description: 'Kreative Familienzeit für 4 Personen' },
+                'custom': { title: 'Individueller Gutschein', amount: customAmount + '€', description: 'Dein Wunschbetrag' }
+            };
+            
+            return voucherTypes[type] || voucherTypes['50'];
+        }
+        
+        function closeVoucherModal() {
+            const modal = document.getElementById('voucher-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        function proceedToPayment() {
+            // Here you would integrate with your payment provider
+            alert('Weiterleitung zur Bezahlung... (Integration mit PayPal/Stripe)');
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('voucher-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVoucherModal();
+            }
+        });
+    </script>
+</body>
+</html>

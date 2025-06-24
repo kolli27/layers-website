@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layers Ceramics Studio Köln - Keramik bemalen, Workshops & Events</title>
+    <meta name="description" content="Kreatives Keramikstudio in Köln. Bemale Keramik, buche Workshops oder feiere Events. Moderne Atmosphäre, hochwertige Materialien, professionelle Betreuung.">
+    <link rel="stylesheet" href="modern-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="./layers logo-3.avif" alt="Layers Logo" class="logo-img">
+                <span class="logo-text">layers</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/gruppenevents" class="nav-link">Events</a>
+                <a href="/gutscheine" class="nav-link">Gutscheine</a>
+                <a href="https://layers.picflow.com/0pk0h9yygz" class="nav-link">Sortiment</a>
+                <a href="/keramik-home" class="nav-link">Keramik@Home</a>
+                <a href="/kontakt" class="nav-link">Kontakt</a>
+                <div class="nav-cta">
+                    <button class="btn-primary" onclick="openBooking()">Platz buchen</button>
+                </div>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Kreativität <span class="highlight">trifft</span> Keramik
+                    </h1>
+                    <p class="hero-subtitle">
+                        Entdecke deine kreative Seite in unserem modernen Keramikstudio in Köln. 
+                        Bemale Keramik, entspanne bei einem Kaffee und nimm einzigartige Kunstwerke mit nach Hause.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-primary large" onclick="openBooking()">
+                            <span>Jetzt Platz buchen</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                        <a href="#was-ist-layers" class="btn-secondary large">Mehr erfahren</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-card">
+                        <img src="./gutschein.avif" alt="Keramik bemalen bei Layers" class="hero-img">
+                        <div class="hero-card-overlay">
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <span class="stat-number">500+</span>
+                                    <span class="stat-label">Glückliche Kunden</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">4.9★</span>
+                                    <span class="stat-label">Google Bewertung</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Was ist Layers -->
+    <section id="was-ist-layers" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Was ist Layers?</h2>
+                <p class="section-subtitle">Dein kreativer Rückzugsort im Herzen von Köln</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Hochwertige Materialien</h3>
+                    <p class="feature-description">Professionelle Keramik und ungiftige Farben für langlebige Kunstwerke</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Persönliche Betreuung</h3>
+                    <p class="feature-description">Unser erfahrenes Team hilft dir bei jedem Schritt deines Kunstwerks</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Gemütliche Atmosphäre</h3>
+                    <p class="feature-description">Entspannte Umgebung mit Kaffee, Tee und beruhigender Musik</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Angebote -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Unsere Angebote</h2>
+                <p class="section-subtitle">Für jeden das passende Erlebnis</p>
+            </div>
+            
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <div class="offer-icon">🎨</div>
+                        <h3 class="offer-title">Offenes Atelier</h3>
+                        <p class="offer-price">ab 15€</p>
+                    </div>
+                    <div class="offer-content">
+                        <p class="offer-description">Komm spontan vorbei und bemale Keramik in entspannter Atmosphäre. Perfekt für einen kreativen Nachmittag.</p>
+                        <ul class="offer-features">
+                            <li>Keine Voranmeldung nötig</li>
+                            <li>Alle Materialien inklusive</li>
+                            <li>Professioneller Brand</li>
+                            <li>Abholung nach 1 Woche</li>
+                        </ul>
+                        <button class="btn-primary full-width" onclick="openBooking('walk-in')">Platz buchen</button>
+                    </div>
+                </div>
+                
+                <div class="offer-card featured">
+                    <div class="offer-badge">Beliebt</div>
+                    <div class="offer-header">
+                        <div class="offer-icon">👥</div>
+                        <h3 class="offer-title">Gruppenevents</h3>
+                        <p class="offer-price">ab 25€/Person</p>
+                    </div>
+                    <div class="offer-content">
+                        <p class="offer-description">Private Events für Teams, Geburtstage, JGA oder Familienfeiern. Unvergessliche Erlebnisse garantiert!</p>
+                        <ul class="offer-features">
+                            <li>Exklusive Nutzung des Studios</li>
+                            <li>Persönliche Betreuung</li>
+                            <li>Catering möglich</li>
+                            <li>Flexible Termine</li>
+                        </ul>
+                        <a href="/gruppenevents" class="btn-primary full-width">Event planen</a>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <div class="offer-icon">🏠</div>
+                        <h3 class="offer-title">Keramik@Home</h3>
+                        <p class="offer-price">ab 12€</p>
+                    </div>
+                    <div class="offer-content">
+                        <p class="offer-description">Nimm Keramik mit nach Hause, bemale sie in Ruhe und bringe sie zum professionellen Brennen zurück.</p>
+                        <ul class="offer-features">
+                            <li>Flexible Gestaltung zu Hause</li>
+                            <li>Farben & Pinsel inklusive</li>
+                            <li>Professioneller Brand</li>
+                            <li>Perfekt für Familien</li>
+                        </ul>
+                        <a href="/keramik-home" class="btn-primary full-width">Mehr erfahren</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+        <div class="container">
+            <div class="quick-actions-grid">
+                <a href="/gutscheine" class="quick-action-card">
+                    <div class="quick-action-icon">🎁</div>
+                    <div class="quick-action-content">
+                        <h3>Gutscheine</h3>
+                        <p>Das perfekte Geschenk für kreative Menschen</p>
+                    </div>
+                    <svg class="quick-action-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                
+                <a href="https://layers.picflow.com/0pk0h9yygz" class="quick-action-card">
+                    <div class="quick-action-icon">🏺</div>
+                    <div class="quick-action-content">
+                        <h3>Sortiment & Preise</h3>
+                        <p>Entdecke alle verfügbaren Keramikstücke</p>
+                    </div>
+                    <svg class="quick-action-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                
+                <a href="/abholzeiten" class="quick-action-card">
+                    <div class="quick-action-icon">⏰</div>
+                    <div class="quick-action-content">
+                        <h3>Abholzeiten</h3>
+                        <p>Wann ist deine Keramik fertig gebrannt?</p>
+                    </div>
+                    <svg class="quick-action-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Was unsere Kunden sagen</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Wunderschönes Studio mit super freundlichem Personal. Perfekt für einen entspannten Nachmittag mit Freunden!"</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah M.</strong>
+                        <span>Google Bewertung</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Unser Teamevent war ein voller Erfolg! Tolle Atmosphäre und professionelle Betreuung. Sehr empfehlenswert!"</p>
+                    <div class="testimonial-author">
+                        <strong>Michael K.</strong>
+                        <span>Google Bewertung</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Die Keramik@Home Option ist genial! Kann in Ruhe zu Hause gestalten und bekommt trotzdem professionelle Ergebnisse."</p>
+                    <div class="testimonial-author">
+                        <strong>Anna L.</strong>
+                        <span>Google Bewertung</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Bereit für dein kreatives Abenteuer?</h2>
+                <p class="cta-subtitle">Buche jetzt deinen Platz und entdecke die entspannende Welt des Keramikbemalens</p>
+                <div class="cta-actions">
+                    <button class="btn-primary large" onclick="openBooking()">Jetzt buchen</button>
+                    <a href="/kontakt" class="btn-secondary large">Fragen? Kontaktiere uns</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="./layers logo-3.avif" alt="Layers Logo" class="footer-logo-img">
+                        <span>layers</span>
+                    </div>
+                    <p class="footer-description">Dein kreativer Rückzugsort im Herzen von Köln. Entspanne beim Keramikbemalen und erschaffe einzigartige Kunstwerke.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Schnelllinks</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/gruppenevents">Events</a></li>
+                        <li><a href="/gutscheine">Gutscheine</a></li>
+                        <li><a href="https://layers.picflow.com/0pk0h9yygz">Sortiment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="/keramik-home">Keramik@Home</a></li>
+                        <li><a href="/abholzeiten">Abholzeiten</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/kontakt">Kontakt</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <div class="footer-contact">
+                        <p>📍 Musterstraße 123, 50667 Köln</p>
+                        <p>📞 <a href="tel:+4922112345678">0221 123 456 78</a></p>
+                        <p>✉️ <a href="mailto:info@layers-koeln.de">info@layers-koeln.de</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Layers Ceramics Studio. Alle Rechte vorbehalten.</p>
+                <div class="footer-legal">
+                    <a href="/impressum">Impressum</a>
+                    <a href="/datenschutz">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Booking Button -->
+    <div class="floating-booking" id="floating-booking">
+        <button class="floating-btn" onclick="openBooking()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <span>Buchen</span>
+        </button>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal" id="booking-modal">
+        <div class="booking-modal-content">
+            <div class="booking-modal-header">
+                <h3>Platz buchen</h3>
+                <button class="booking-modal-close" onclick="closeBooking()">&times;</button>
+            </div>
+            <div class="booking-modal-body">
+                <div class="booking-step active" id="step-1">
+                    <h4>Was möchtest du buchen?</h4>
+                    <div class="booking-options">
+                        <button class="booking-option" onclick="selectBookingType('walk-in')">
+                            <div class="booking-option-icon">🎨</div>
+                            <div class="booking-option-content">
+                                <h5>Offenes Atelier</h5>
+                                <p>Spontan vorbeikommen und bemalen</p>
+                            </div>
+                        </button>
+                        <button class="booking-option" onclick="selectBookingType('group')">
+                            <div class="booking-option-icon">👥</div>
+                            <div class="booking-option-content">
+                                <h5>Gruppenevent</h5>
+                                <p>Private Feier oder Teamevent</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- More booking steps will be added via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="modern-script-integrated.js"></script>
+</body>
+</html>
