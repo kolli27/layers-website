@@ -12,7 +12,10 @@ const API_ENDPOINTS = {
 };
 
 // DOM Elements
-// (Already declared above, so this block is removed)
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+const bookingModal = document.getElementById('booking-modal');
+const floatingBooking = document.getElementById('floating-booking');
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {

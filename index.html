@@ -3,521 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layers Cologne - Keramikmalerei Studio</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Page-specific styles for homepage */
-        
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
-            align-items: center;
-        }
-
-        .hero-text {
-            animation: fadeInLeft 1s ease-out;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.2;
-            margin-bottom: 2rem;
-            color: var(--primary-navy);
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
-
-        .hero-image {
-            position: relative;
-            animation: fadeInRight 1s ease-out;
-        }
-
-        .hero-image-wrapper {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: var(--transition);
-        }
-
-        .hero-image-wrapper:hover {
-            transform: perspective(1000px) rotateY(0deg) scale(1.02);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Decorative elements */
-        .floating-shape {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape-1 {
-            width: 200px;
-            height: 200px;
-            background-color: var(--primary-orange);
-            top: 10%;
-            right: 5%;
-            animation-delay: 0s;
-        }
-
-        .shape-2 {
-            width: 150px;
-            height: 150px;
-            background-color: var(--primary-navy);
-            bottom: 20%;
-            left: 10%;
-            animation-delay: 2s;
-        }
-
-        /* Process Section */
-        .process {
-            padding: 5rem 5%;
-            background-color: var(--white);
-            position: relative;
-        }
-
-        .process h2 {
-            text-align: center;
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--primary-navy);
-            margin-bottom: 4rem;
-            animation: fadeInUp 0.8s ease-out both;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .process-card {
-            background-color: var(--bg-cream);
-            padding: 2.5rem;
-            border-radius: 20px;
-            text-align: center;
-            position: relative;
-            transition: var(--transition);
-            animation: fadeInUp 0.8s ease-out both;
-        }
-
-        .process-card:nth-child(1) { animation-delay: 0.1s; }
-        .process-card:nth-child(2) { animation-delay: 0.2s; }
-        .process-card:nth-child(3) { animation-delay: 0.3s; }
-        .process-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .process-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-        }
-
-        .process-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-orange);
-            color: var(--white);
-            border-radius: 50%;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-        }
-
-        .process-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary-navy);
-            margin-bottom: 1rem;
-        }
-
-        .process-card p {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 5rem 5%;
-            background-color: var(--bg-cream);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonial-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-        }
-
-        .testimonial {
-            padding: 2rem;
-            animation: slideIn 0.5s ease-out;
-        }
-
-        .testimonial p {
-            font-size: 1.5rem;
-            font-style: italic;
-            color: var(--text-dark);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--primary-navy);
-        }
-
-        .testimonial-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: var(--primary-orange);
-            opacity: 0.3;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .dot.active {
-            opacity: 1;
-            width: 30px;
-            border-radius: 5px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text {
-                order: 2;
-            }
-
-            .hero-image {
-                order: 1;
-            }
-
-            .cta-buttons {
-                justify-content: center;
-            }
-
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <title>Layers Ceramics Studio Köln - Keramik bemalen, Workshops & Events</title>
+    <meta name="description" content="Kreatives Keramikstudio in Köln. Bemale Keramik, buche Workshops oder feiere Events. Moderne Atmosphäre, hochwertige Materialien, professionelle Betreuung.">
+    <link rel="stylesheet" href="modern-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
-        <a href="#" class="logo">
-            <img src="./layers logo-3.avif" alt="Layers Logo" class="logo-img">
-        </a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home" class="active">home</a></li>
-            <li><a href="gruppenevent.html">gruppenevent</a></li>
-            <li><a href="gutschein.html">gutscheine</a></li>
-            <li><a href="https://layers.picflow.com/0pk0h9yygz">sortiment & preise</a></li>
-            <li><a href="#keramik">keramik@home</a></li>
-            <li><a href="#abholzeiten">aktuelle abholzeiten</a></li>
-            <li><a href="#faq">faq</a></li>
-            <li><a href="#about">über layers</a></li>
-            <li><a href="#kontakt">kontakt</a></li>
-            <li>
-                <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" />
-                    <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" />
-                    <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" />
-                </svg>
-            </li>
-        </ul>
-        <div class="menu-toggle" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="./layers logo-3.avif" alt="Layers Logo" class="logo-img">
+                <span class="logo-text">layers</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/gruppenevents" class="nav-link">Events</a>
+                <a href="/gutscheine" class="nav-link">Gutscheine</a>
+                <a href="https://layers.picflow.com/0pk0h9yygz" class="nav-link">Sortiment</a>
+                <a href="/keramik-home" class="nav-link">Keramik@Home</a>
+                <a href="/kontakt" class="nav-link">Kontakt</a>
+                <div class="nav-cta">
+                    <button class="btn-primary" onclick="openBooking()">Platz buchen</button>
+                </div>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="floating-shape shape-1"></div>
-        <div class="floating-shape shape-2"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Erwecke deine Ideen zum Leben</h1>
-                <p>Bei layers tauchst du in die kreative Welt des Keramikbemalens ein und schaffst alltagstaugliche Unikate. Die entspannte Atmosphäre in unserem Malstudio lädt dazu ein, deiner Kreativität freien Lauf zu lassen – egal, ob du noch nie einen Pinsel in der Hand hattest oder bereits Erfahrung hast. Lass dich inspirieren und gestalte Keramik, die so individuell ist wie du.</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary">Ich bin dabei!</a>
-                    <a href="gutschein.html" class="btn btn-secondary">Gutschein kaufen</a>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Kreativität <span class="highlight">trifft</span> Keramik
+                    </h1>
+                    <p class="hero-subtitle">
+                        Entdecke deine kreative Seite in unserem modernen Keramikstudio in Köln. 
+                        Bemale Keramik, entspanne bei einem Kaffee und nimm einzigartige Kunstwerke mit nach Hause.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-primary large" onclick="openBooking()">
+                            <span>Jetzt Platz buchen</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                        <a href="#was-ist-layers" class="btn-secondary large">Mehr erfahren</a>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600" alt="Keramikmalerei bei Layers">
+                <div class="hero-image">
+                    <div class="hero-card">
+                        <img src="./gutschein.avif" alt="Keramik bemalen bei Layers" class="hero-img">
+                        <div class="hero-card-overlay">
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <span class="stat-number">500+</span>
+                                    <span class="stat-label">Glückliche Kunden</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">4.9★</span>
+                                    <span class="stat-label">Google Bewertung</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process">
-        <h2>So funktioniert's</h2>
-        <div class="process-grid">
-            <div class="process-card animate-on-scroll">
-                <div class="process-number">1</div>
-                <h3>Platz reservieren</h3>
-                <p>Sichere dir online deinen Platz und plane deine kreative Auszeit. Unsere Sessions sind beliebt, also buche frühzeitig!</p>
+    <!-- Was ist Layers -->
+    <section id="was-ist-layers" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Was ist Layers?</h2>
+                <p class="section-subtitle">Dein kreativer Rückzugsort im Herzen von Köln</p>
             </div>
-            <div class="process-card animate-on-scroll">
-                <div class="process-number">2</div>
-                <h3>Ankommen & Einführung</h3>
-                <p>Bei deiner Ankunft erwartet dich eine kurze Einführung. Wenn du mal keine Inspiration hast, stehen wir mit Tipps und Ideen bereit.</p>
-            </div>
-            <div class="process-card animate-on-scroll">
-                <div class="process-number">3</div>
-                <h3>Bemalen</h3>
-                <p>Gestalte dein Unikat in entspannter Atmosphäre. Genieße dabei einen leckeren Kaffee und lass deiner Kreativität freien Lauf.</p>
-            </div>
-            <div class="process-card animate-on-scroll">
-                <div class="process-number">4</div>
-                <h3>Glasurbrand & Abholung</h3>
-                <p>In sorgfältiger Handarbeit wird dein Kunstwerk glasiert und gebrannt. In ca. einer Woche kannst du deine Unikate abholen.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Hochwertige Materialien</h3>
+                    <p class="feature-description">Professionelle Keramik und ungiftige Farben für langlebige Kunstwerke</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Persönliche Betreuung</h3>
+                    <p class="feature-description">Unser erfahrenes Team hilft dir bei jedem Schritt deines Kunstwerks</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Gemütliche Atmosphäre</h3>
+                    <p class="feature-description">Entspannte Umgebung mit Kaffee, Tee und beruhigender Musik</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="testimonial-container">
-            <div class="testimonial">
-                <p>"Super Atmosphäre, nettes Team, - hat richtig Spaß gemacht. DANKE :)"</p>
-                <div class="testimonial-author">- Caro</div>
+    <!-- Angebote -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Unsere Angebote</h2>
+                <p class="section-subtitle">Für jeden das passende Erlebnis</p>
             </div>
-            <div class="testimonial-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+            
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <div class="offer-icon">🎨</div>
+                        <h3 class="offer-title">Offenes Atelier</h3>
+                        <p class="offer-price">ab 15€</p>
+                    </div>
+                    <div class="offer-content">
+                        <p class="offer-description">Komm spontan vorbei und bemale Keramik in entspannter Atmosphäre. Perfekt für einen kreativen Nachmittag.</p>
+                        <ul class="offer-features">
+                            <li>Keine Voranmeldung nötig</li>
+                            <li>Alle Materialien inklusive</li>
+                            <li>Professioneller Brand</li>
+                            <li>Abholung nach 1 Woche</li>
+                        </ul>
+                        <button class="btn-primary full-width" onclick="openBooking('walk-in')">Platz buchen</button>
+                    </div>
+                </div>
+                
+                <div class="offer-card featured">
+                    <div class="offer-badge">Beliebt</div>
+                    <div class="offer-header">
+                        <div class="offer-icon">👥</div>
+                        <h3 class="offer-title">Gruppenevents</h3>
+                        <p class="offer-price">ab 25€/Person</p>
+                    </div>
+                    <div class="offer-content">
+                        <p class="offer-description">Private Events für Teams, Geburtstage, JGA oder Familienfeiern. Unvergessliche Erlebnisse garantiert!</p>
+                        <ul class="offer-features">
+                            <li>Exklusive Nutzung des Studios</li>
+                            <li>Persönliche Betreuung</li>
+                            <li>Catering möglich</li>
+                            <li>Flexible Termine</li>
+                        </ul>
+                        <a href="/gruppenevents" class="btn-primary full-width">Event planen</a>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <div class="offer-icon">🏠</div>
+                        <h3 class="offer-title">Keramik@Home</h3>
+                        <p class="offer-price">ab 12€</p>
+                    </div>
+                    <div class="offer-content">
+                        <p class="offer-description">Nimm Keramik mit nach Hause, bemale sie in Ruhe und bringe sie zum professionellen Brennen zurück.</p>
+                        <ul class="offer-features">
+                            <li>Flexible Gestaltung zu Hause</li>
+                            <li>Farben & Pinsel inklusive</li>
+                            <li>Professioneller Brand</li>
+                            <li>Perfekt für Familien</li>
+                        </ul>
+                        <a href="/keramik-home" class="btn-primary full-width">Mehr erfahren</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+        <div class="container">
+            <div class="quick-actions-grid">
+                <a href="/gutscheine" class="quick-action-card">
+                    <div class="quick-action-icon">🎁</div>
+                    <div class="quick-action-content">
+                        <h3>Gutscheine</h3>
+                        <p>Das perfekte Geschenk für kreative Menschen</p>
+                    </div>
+                    <svg class="quick-action-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                
+                <a href="https://layers.picflow.com/0pk0h9yygz" class="quick-action-card">
+                    <div class="quick-action-icon">🏺</div>
+                    <div class="quick-action-content">
+                        <h3>Sortiment & Preise</h3>
+                        <p>Entdecke alle verfügbaren Keramikstücke</p>
+                    </div>
+                    <svg class="quick-action-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                
+                <a href="/abholzeiten" class="quick-action-card">
+                    <div class="quick-action-icon">⏰</div>
+                    <div class="quick-action-content">
+                        <h3>Abholzeiten</h3>
+                        <p>Wann ist deine Keramik fertig gebrannt?</p>
+                    </div>
+                    <svg class="quick-action-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Was unsere Kunden sagen</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Wunderschönes Studio mit super freundlichem Personal. Perfekt für einen entspannten Nachmittag mit Freunden!"</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah M.</strong>
+                        <span>Google Bewertung</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Unser Teamevent war ein voller Erfolg! Tolle Atmosphäre und professionelle Betreuung. Sehr empfehlenswert!"</p>
+                    <div class="testimonial-author">
+                        <strong>Michael K.</strong>
+                        <span>Google Bewertung</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Die Keramik@Home Option ist genial! Kann in Ruhe zu Hause gestalten und bekommt trotzdem professionelle Ergebnisse."</p>
+                    <div class="testimonial-author">
+                        <strong>Anna L.</strong>
+                        <span>Google Bewertung</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Bereit für dein kreatives Abenteuer?</h2>
+                <p class="cta-subtitle">Buche jetzt deinen Platz und entdecke die entspannende Welt des Keramikbemalens</p>
+                <div class="cta-actions">
+                    <button class="btn-primary large" onclick="openBooking()">Jetzt buchen</button>
+                    <a href="/kontakt" class="btn-secondary large">Fragen? Kontaktiere uns</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="#faq">faq</a>
-                <a href="#about">über layers</a>
-                <a href="#kontakt">kontakt</a>
-            </div>
-            <div class="footer-section">
-                <h4>Rechtliches</h4>
-                <a href="#impressum">impressum</a>
-                <a href="#agb">agb</a>
-                <a href="#datenschutz">datenschutz</a>
-            </div>
-            <div class="footer-section">
-                <h4>Folge uns</h4>
-                <div class="social-links">
-                    <a href="#">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
-                        </svg>
-                    </a>
-                    <a href="#">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
-                        </svg>
-                    </a>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="./layers logo-3.avif" alt="Layers Logo" class="footer-logo-img">
+                        <span>layers</span>
+                    </div>
+                    <p class="footer-description">Dein kreativer Rückzugsort im Herzen von Köln. Entspanne beim Keramikbemalen und erschaffe einzigartige Kunstwerke.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Schnelllinks</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/gruppenevents">Events</a></li>
+                        <li><a href="/gutscheine">Gutscheine</a></li>
+                        <li><a href="https://layers.picflow.com/0pk0h9yygz">Sortiment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="/keramik-home">Keramik@Home</a></li>
+                        <li><a href="/abholzeiten">Abholzeiten</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/kontakt">Kontakt</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <div class="footer-contact">
+                        <p>📍 Musterstraße 123, 50667 Köln</p>
+                        <p>📞 <a href="tel:+4922112345678">0221 123 456 78</a></p>
+                        <p>✉️ <a href="mailto:info@layers-koeln.de">info@layers-koeln.de</a></p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-section">
-                <h4>Platz buchen</h4>
-                <a href="#" class="btn btn-primary" style="margin-top: 1rem;">Platz buchen</a>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Layers Ceramics Studio. Alle Rechte vorbehalten.</p>
+                <div class="footer-legal">
+                    <a href="/impressum">Impressum</a>
+                    <a href="/datenschutz">Datenschutz</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+    <!-- Floating Booking Button -->
+    <div class="floating-booking" id="floating-booking">
+        <button class="floating-btn" onclick="openBooking()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <span>Buchen</span>
+        </button>
+    </div>
 
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#' || !targetId.startsWith('#')) return;
+    <!-- Booking Modal -->
+    <div class="booking-modal" id="booking-modal">
+        <div class="booking-modal-content">
+            <div class="booking-modal-header">
+                <h3>Platz buchen</h3>
+                <button class="booking-modal-close" onclick="closeBooking()">&times;</button>
+            </div>
+            <div class="booking-modal-body">
+                <div class="booking-step active" id="step-1">
+                    <h4>Was möchtest du buchen?</h4>
+                    <div class="booking-options">
+                        <button class="booking-option" onclick="selectBookingType('walk-in')">
+                            <div class="booking-option-icon">🎨</div>
+                            <div class="booking-option-content">
+                                <h5>Offenes Atelier</h5>
+                                <p>Spontan vorbeikommen und bemalen</p>
+                            </div>
+                        </button>
+                        <button class="booking-option" onclick="selectBookingType('group')">
+                            <div class="booking-option-icon">👥</div>
+                            <div class="booking-option-content">
+                                <h5>Gruppenevent</h5>
+                                <p>Private Feier oder Teamevent</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
                 
-                e.preventDefault();
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+                <!-- More booking steps will be added via JavaScript -->
+            </div>
+        </div>
+    </div>
 
-        // Active navigation link based on scroll position
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navItems = document.querySelectorAll('.nav-links a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href').slice(1) === current) {
-                    item.classList.add('active');
-                }
-            });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Testimonial carousel
-        const dots = document.querySelectorAll('.dot');
-        const testimonials = [
-            {
-                text: "Super Atmosphäre, nettes Team, - hat richtig Spaß gemacht. DANKE :)",
-                author: "Caro"
-            },
-            {
-                text: "Ein wunderbarer Ort zum Entspannen und kreativ werden. Absolut empfehlenswert!",
-                author: "Lisa"
-            },
-            {
-                text: "Die beste Idee für einen Mädelsabend! Wir kommen definitiv wieder.",
-                author: "Sarah"
-            },
-            {
-                text: "Tolle Auswahl an Keramik und super nette Betreuung. Hat viel Spaß gemacht!",
-                author: "Michael"
-            }
-        ];
-
-        let currentTestimonial = 0;
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentTestimonial = index;
-                updateTestimonial();
-            });
-        });
-
-        function updateTestimonial() {
-            const testimonialElement = document.querySelector('.testimonial');
-            testimonialElement.innerHTML = `
-                <p>"${testimonials[currentTestimonial].text}"</p>
-                <div class="testimonial-author">- ${testimonials[currentTestimonial].author}</div>
-            `;
-            
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentTestimonial);
-            });
-        }
-
-        // Auto-rotate testimonials
-        setInterval(() => {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            updateTestimonial();
-        }, 5000);
-    </script>
+    <script src="modern-script-integrated.js"></script>
 </body>
 </html>
